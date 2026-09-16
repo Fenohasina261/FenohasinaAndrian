@@ -493,7 +493,7 @@
         .media-frame img {
             width: 100%;
             height: 100%;
-            object-fit: contain;
+            object-fit: cover;
             display: block;
             transition: transform 0.6s ease;
             background: var(--line);
@@ -505,30 +505,6 @@
         .work-card:hover .media-frame video,
         .work-card:hover .media-frame img {
             transform: scale(1.02);
-        }
-
-        .media-placeholder {
-            display: none;
-            width: 100%;
-            height: 100%;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 0.5rem;
-            text-align: center;
-            padding: 1.5rem;
-        }
-        .media-placeholder .ph-tag {
-            font-family: var(--font-serif);
-            font-style: italic;
-            font-size: 1.3rem;
-            color: var(--gold);
-        }
-        .media-placeholder .ph-note {
-            font-size: 0.7rem;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-            color: var(--gray);
         }
 
         .work-meta {
@@ -653,176 +629,6 @@
             letter-spacing: 0.06em;
             text-transform: uppercase;
             white-space: nowrap;
-        }
-        .case-paragraph {
-            color: var(--gray);
-            font-size: 0.98rem;
-            margin-bottom: 1.6rem;
-            line-height: 1.75;
-        }
-        .case-block {
-            margin-bottom: 1.4rem;
-        }
-        .case-block-title {
-            font-weight: 700;
-            color: var(--ink);
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 0.06em;
-            margin-bottom: 0.6rem;
-        }
-        .case-block p {
-            color: var(--gray);
-            font-size: 0.92rem;
-        }
-
-        .matrix-grid-3 {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1.2rem;
-            margin: 1.2rem 0;
-        }
-        .matrix-grid-2 {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1.4rem;
-            margin: 1.2rem 0;
-        }
-        .matrix-card {
-            background: var(--cream);
-            border: 1px solid var(--line);
-            padding: 1.5rem;
-        }
-        .matrix-metric-label {
-            font-size: 0.78rem;
-            color: var(--gray);
-            text-transform: uppercase;
-            letter-spacing: 0.04em;
-            font-weight: 600;
-            margin-bottom: 0.9rem;
-        }
-        .matrix-values {
-            display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-            margin-bottom: 0.9rem;
-            flex-wrap: wrap;
-            gap: 0.3rem;
-        }
-        .val-before {
-            font-size: 1rem;
-            color: var(--gray);
-            text-decoration: line-through;
-            opacity: 0.8;
-        }
-        .val-arrow {
-            color: var(--gold);
-            font-size: 0.9rem;
-        }
-        .val-after {
-            font-family: var(--font-serif);
-            font-size: 1.9rem;
-            font-weight: 600;
-            color: var(--ink);
-        }
-        .matrix-badge {
-            display: inline-block;
-            background: var(--white);
-            color: var(--ink);
-            border: 1px solid var(--gold);
-            padding: 0.35rem 0.6rem;
-            font-size: 0.78rem;
-            font-weight: 600;
-            width: 100%;
-            text-align: center;
-        }
-
-        .visual-meter-container {
-            margin-top: 0.8rem;
-        }
-        .meter-bg {
-            background: var(--line);
-            height: 8px;
-            overflow: hidden;
-            margin-bottom: 0.5rem;
-        }
-        .meter-fill {
-            height: 100%;
-            background: var(--gold);
-        }
-
-        .chart-box {
-            background: var(--cream);
-            border: 1px solid var(--line);
-            padding: 1.5rem;
-            margin-top: 1rem;
-        }
-        .chart-container-wrapper {
-            position: relative;
-            height: 260px;
-            width: 100%;
-        }
-
-        .takeaway-box {
-            border: 1px solid var(--line);
-            padding: 1.6rem 1.8rem;
-            margin-top: 1.4rem;
-        }
-        .takeaway-box ul {
-            list-style: none;
-            color: var(--gray);
-            font-size: 0.92rem;
-        }
-        .takeaway-box ul li {
-            margin-bottom: 0.6rem;
-            padding-left: 1.2rem;
-            position: relative;
-        }
-        .takeaway-box ul li::before {
-            content: "—";
-            color: var(--gold);
-            position: absolute;
-            left: 0;
-        }
-        .takeaway-box ul li strong {
-            color: var(--ink);
-        }
-
-        /* ---------- My Approach ---------- */
-        .approach-inner {
-            max-width: 720px;
-        }
-        .approach-inner h2 {
-            font-size: 2.6rem;
-            margin-bottom: 1.6rem;
-        }
-        .approach-inner h2 .script {
-            display: inline-block;
-        }
-        .approach-inner p {
-            color: var(--gray);
-            font-size: 1.08rem;
-            margin-bottom: 1.1rem;
-        }
-
-        /* ---------- Creative Focus ---------- */
-        .focus-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.9rem;
-        }
-        .focus-pill {
-            font-size: 0.82rem;
-            letter-spacing: 0.05em;
-            text-transform: uppercase;
-            color: var(--ink);
-            border: 1px solid var(--line);
-            padding: 0.7rem 1.2rem;
-            transition: border-color 0.3s ease, color 0.3s ease;
-        }
-        .focus-pill:hover {
-            border-color: var(--gold);
-            color: #8a6f47;
         }
 
         /* ---------- Contact ---------- */
@@ -984,13 +790,6 @@
             .work-grid {
                 grid-template-columns: 1fr;
             }
-            .matrix-grid-3,
-            .matrix-grid-2 {
-                grid-template-columns: 1fr;
-            }
-            .case-card {
-                padding: 1.8rem;
-            }
         }
     </style>
 </head>
@@ -1073,571 +872,177 @@
         </div>
     </section>
 
-    <!-- About -->
+    <!-- About Section -->
     <section id="about">
-        <div class="container about-inner">
-            <p class="eyebrow reveal" style="text-align:center;">About</p>
-            <h2 class="reveal">More than content.</h2>
-            <p class="reveal">I'm Fenohasina, a digital marketer and emerging content creator exploring the intersection between visual storytelling and digital strategy.</p>
-            <p class="reveal">I'm currently building my creative portfolio through personal projects while developing my experience in social media, paid media, SEO and digital marketing.</p>
+        <div class="container about-inner reveal">
+            <h2>About Me</h2>
+            <p>I am a digital marketing professional and creative content creator based in Antananarivo, Madagascar. Passionate about storytelling, aesthetic curation, and data-driven performance.</p>
+            <p>I help brands build robust identities and effective online presence through precise digital strategy, targeted campaigns, and compelling visuals.</p>
         </div>
     </section>
 
-    <!-- CONTENT -->
-    <section id="content">
-        <div class="container">
-            <div class="section-head">
-                <p class="eyebrow reveal">Content</p>
-                <h2 class="reveal">Visual <span class="script">Stories</span></h2>
-                <p class="section-lead reveal">Personal creative projects exploring beauty, lifestyle and everyday storytelling through video &mdash; the starting point of my content creation journey.</p>
-            </div>
-
-            <div class="work-grid">
-                <article class="work-card reveal">
-                    <div class="media-frame">
-                        <video muted loop playsinline preload="none" controls
-                               onerror="this.parentElement.querySelector('.media-placeholder').style.display='flex'; this.remove();">
-                            <source src="assets/videos/restaurant-vlog.mp4" type="video/mp4">
-                        </video>
-                        <div class="media-placeholder">
-                            <span class="ph-tag">Restaurant Vlog</span>
-                            <span class="ph-note">Video coming soon</span>
-                        </div>
-                    </div>
-                    <div class="work-meta">
-                        <span class="work-tag">Personal Creative Project</span>
-                        <h3>Restaurant Vlog</h3>
-                        <p>A day-in-the-life style vlog capturing a restaurant visit through natural, unscripted storytelling.</p>
-                    </div>
-                </article>
-
-                <article class="work-card reveal">
-                    <div class="media-frame">
-                        <video muted loop playsinline preload="none" controls
-                               onerror="this.parentElement.querySelector('.media-placeholder').style.display='flex'; this.remove();">
-                            <source src="assets/videos/pin-curl-tutorial.mp4" type="video/mp4">
-                        </video>
-                        <div class="media-placeholder">
-                            <span class="ph-tag">Pin Curl Tutorial</span>
-                            <span class="ph-note">Video coming soon</span>
-                        </div>
-                    </div>
-                    <div class="work-meta">
-                        <span class="work-tag">Personal Creative Project</span>
-                        <h3>Pin Curl Tutorial</h3>
-                        <p>A step-by-step tutorial styling a classic pin curl look, shared as haircare content.</p>
-                    </div>
-                </article>
-
-                <article class="work-card reveal">
-                    <div class="media-frame">
-                        <video muted loop playsinline preload="none" controls
-                               onerror="this.parentElement.querySelector('.media-placeholder').style.display='flex'; this.remove();">
-                            <source src="assets/videos/blackhead-mask.mp4" type="video/mp4">
-                        </video>
-                        <div class="media-placeholder">
-                            <span class="ph-tag">Blackhead Mask</span>
-                            <span class="ph-note">Video coming soon</span>
-                        </div>
-                    </div>
-                    <div class="work-meta">
-                        <span class="work-tag">Personal Creative Project</span>
-                        <h3>Blackhead Mask</h3>
-                        <p>A skincare routine moment featuring a purifying mask application.</p>
-                    </div>
-                </article>
-
-                <article class="work-card reveal">
-                    <div class="media-frame">
-                        <video muted loop playsinline preload="none" controls
-                               onerror="this.parentElement.querySelector('.media-placeholder').style.display='flex'; this.remove();">
-                            <source src="assets/videos/outfit-of-the-day.mp4" type="video/mp4">
-                        </video>
-                        <div class="media-placeholder">
-                            <span class="ph-tag">Outfit of the Day</span>
-                            <span class="ph-note">Video coming soon</span>
-                        </div>
-                    </div>
-                    <div class="work-meta">
-                        <span class="work-tag">Personal Creative Project</span>
-                        <h3>Outfit of the Day</h3>
-                        <p>A styled outfit-of-the-day showcase highlighting fit, layering and details.</p>
-                    </div>
-                </article>
-
-                <article class="work-card reveal">
-                    <div class="media-frame">
-                        <video muted loop playsinline preload="none" controls
-                               onerror="this.parentElement.querySelector('.media-placeholder').style.display='flex'; this.remove();">
-                            <source src="assets/videos/haircare-routine.mp4" type="video/mp4">
-                        </video>
-                        <div class="media-placeholder">
-                            <span class="ph-tag">Haircare Routine</span>
-                            <span class="ph-note">Video coming soon</span>
-                        </div>
-                    </div>
-                    <div class="work-meta">
-                        <span class="work-tag">Personal Creative Project</span>
-                        <h3>Haircare Routine</h3>
-                        <p>A personal haircare routine shared as everyday lifestyle content.</p>
-                    </div>
-                </article>
-
-                <article class="work-card reveal">
-                    <div class="media-frame">
-                        <video muted loop playsinline preload="none" controls
-                               onerror="this.parentElement.querySelector('.media-placeholder').style.display='flex'; this.remove();">
-                            <source src="assets/videos/mini-ootd-bag-watch.mp4" type="video/mp4">
-                        </video>
-                        <div class="media-placeholder">
-                            <span class="ph-tag">Mini OOTD</span>
-                            <span class="ph-note">Video coming soon</span>
-                        </div>
-                    </div>
-                    <div class="work-meta">
-                        <span class="work-tag">Personal Creative Project</span>
-                        <h3>Mini OOTD &mdash; Bag &amp; Watch</h3>
-                        <p>A short-form styling moment focused on accessories &mdash; bag and watch.</p>
-                    </div>
-                </article>
-            </div>
-        </div>
-    </section>
-
-    <!-- SOCIAL MEDIA -->
+    <!-- Social Media Section (Intégration de 3 visuels de réseaux sociaux) -->
     <section id="social-media">
         <div class="container">
-            <div class="section-head">
-                <p class="eyebrow reveal">Social Media</p>
-                <h2 class="reveal">Social Media</h2>
-                <p class="section-lead reveal" style="font-family:var(--font-serif); font-style:italic; font-size:1.15rem; color:var(--ink);">Content that gives brands a presence.</p>
-                <p class="section-lead reveal">I create social media content and visual concepts designed to communicate clearly, strengthen brand identity and keep audiences engaged.</p>
+            <div class="section-head reveal">
+                <p class="eyebrow">Portfolio</p>
+                <h2>Social Media &amp; Content Design</h2>
+                <p class="section-lead">A selection of grid feeds, educational carousels, and campaign visuals built to boost engagement and brand identity.</p>
             </div>
-
-            <p class="eyebrow reveal" style="margin-bottom:1.6rem;">Selected Social Media &amp; Visual Content</p>
-
+            
             <div class="work-grid">
-                <article class="work-card reveal">
+                <!-- 1. Instagram Grid -->
+                <div class="work-card reveal">
                     <div class="media-frame">
-                        <img src="assets/img/social-instagram-grid.jpg" alt="Instagram content concept"
-                             onerror="this.parentElement.querySelector('.media-placeholder').style.display='flex'; this.remove();">
-                        <div class="media-placeholder">
-                            <span class="ph-tag">Instagram Content</span>
-                            <span class="ph-note">Visual coming soon</span>
-                        </div>
+                        <img src="assets/img/social-instagram-grid.jpg" alt="Instagram Grid Feed Design" loading="lazy">
                     </div>
                     <div class="work-meta">
-                        <span class="work-tag">Instagram Content</span>
-                        <h3>Instagram Grid Concept</h3>
-                        <p>A cohesive grid concept exploring color, layout and tone for a consistent brand presence.</p>
+                        <span class="work-tag">Grid Design</span>
+                        <h3>Instagram Feed Curation</h3>
+                        <p>Art direction and structured layout to ensure high visual harmony and brand consistency.</p>
                     </div>
-                </article>
+                </div>
 
-                <article class="work-card reveal">
+                <!-- 2. Instagram Carousel -->
+                <div class="work-card reveal">
                     <div class="media-frame">
-                        <img src="assets/img/social-promo-visual.jpg" alt="Promotional content concept"
-                             onerror="this.parentElement.querySelector('.media-placeholder').style.display='flex'; this.remove();">
-                        <div class="media-placeholder">
-                            <span class="ph-tag">Promotional Content</span>
-                            <span class="ph-note">Visual coming soon</span>
-                        </div>
+                        <img src="assets/img/social-instagram-carousel.png" alt="Instagram Educational Carousel" loading="lazy">
                     </div>
                     <div class="work-meta">
-                        <span class="work-tag">Promotional Content</span>
-                        <h3>Promotional Post Design</h3>
-                        <p>A promotional visual concept designed to highlight an offer clearly and elegantly.</p>
+                        <span class="work-tag">Carousel</span>
+                        <h3>Educational Carousel</h3>
+                        <p>Engaging slides optimized for readability, saves, and shares on social networks.</p>
                     </div>
-                </article>
+                </div>
 
-                <article class="work-card reveal">
+                <!-- 3. Educational Story / Brand Communication -->
+                <div class="work-card reveal">
                     <div class="media-frame">
-                        <img src="assets/img/social-educational-carousel.jpg" alt="Educational carousel concept"
-                             onerror="this.parentElement.querySelector('.media-placeholder').style.display='flex'; this.remove();">
-                        <div class="media-placeholder">
-                            <span class="ph-tag">Educational Content</span>
-                            <span class="ph-note">Visual coming soon</span>
-                        </div>
+                        <img src="assets/img/social-educational-story.png" alt="Educational Story Design" loading="lazy">
                     </div>
                     <div class="work-meta">
-                        <span class="work-tag">Educational Content</span>
-                        <h3>Educational Carousel &mdash; Skincare Tips</h3>
-                        <p>A multi-slide carousel concept breaking down a skincare topic into clear, shareable steps.</p>
+                        <span class="work-tag">Stories</span>
+                        <h3>Interactive Stories</h3>
+                        <p>Dynamic sequences designed to drive direct community interactions and engagement.</p>
                     </div>
-                </article>
-
-                <article class="work-card reveal">
-                    <div class="media-frame">
-                        <img src="assets/img/social-campaign-concept.jpg" alt="Campaign concept moodboard"
-                             onerror="this.parentElement.querySelector('.media-placeholder').style.display='flex'; this.remove();">
-                        <div class="media-placeholder">
-                            <span class="ph-tag">Campaign Concepts</span>
-                            <span class="ph-note">Visual coming soon</span>
-                        </div>
-                    </div>
-                    <div class="work-meta">
-                        <span class="work-tag">Campaign Concepts</span>
-                        <h3>Seasonal Campaign Moodboard</h3>
-                        <p>A concept moodboard exploring visual direction for a seasonal campaign idea.</p>
-                    </div>
-                </article>
-
-                <article class="work-card reveal">
-                    <div class="media-frame">
-                        <img src="assets/img/social-brand-communication.jpg" alt="Brand communication concept"
-                             onerror="this.parentElement.querySelector('.media-placeholder').style.display='flex'; this.remove();">
-                        <div class="media-placeholder">
-                            <span class="ph-tag">Brand Communication</span>
-                            <span class="ph-note">Visual coming soon</span>
-                        </div>
-                    </div>
-                    <div class="work-meta">
-                        <span class="work-tag">Brand Communication</span>
-                        <h3>Brand Voice &amp; Tone Concept</h3>
-                        <p>A visual exploration of how a brand's tone and personality can translate into content.</p>
-                    </div>
-                </article>
-
-                <article class="work-card reveal">
-                    <div class="media-frame">
-                        <img src="assets/img/social-story-template.jpg" alt="Social media story template"
-                             onerror="this.parentElement.querySelector('.media-placeholder').style.display='flex'; this.remove();">
-                        <div class="media-placeholder">
-                            <span class="ph-tag">Social Media Content</span>
-                            <span class="ph-note">Visual coming soon</span>
-                        </div>
-                    </div>
-                    <div class="work-meta">
-                        <span class="work-tag">Social Media Content</span>
-                        <h3>Story Template Concept</h3>
-                        <p>A reusable story template concept built for quick, on-brand daily posting.</p>
-                    </div>
-                </article>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- DIGITAL MARKETING -->
+    <!-- Content Section (Intégration des autres visuels : Brand communication & Promo visual) -->
+    <section id="content">
+        <div class="container">
+            <div class="section-head reveal">
+                <p class="eyebrow">Visuals &amp; Campaigns</p>
+                <h2>Brand Communication &amp; Promos</h2>
+                <p class="section-lead">High-impact promotional visuals and institutional communication assets.</p>
+            </div>
+            
+            <div class="work-grid">
+                <!-- 1. Brand Communication -->
+                <div class="work-card reveal">
+                    <div class="media-frame">
+                        <img src="assets/img/social-brand-communication.png" alt="Brand Communication Visual" loading="lazy">
+                    </div>
+                    <div class="work-meta">
+                        <span class="work-tag">Branding</span>
+                        <h3>Brand Communication</h3>
+                        <p>Institutional assets crafted to strengthen corporate identity and visual positioning.</p>
+                    </div>
+                </div>
+
+                <!-- 2. Promo Visual -->
+                <div class="work-card reveal">
+                    <div class="media-frame">
+                        <img src="assets/img/social-promo-visual.png" alt="Promo Visual Campaign" loading="lazy">
+                    </div>
+                    <div class="work-meta">
+                        <span class="work-tag">Acquisition</span>
+                        <h3>Promo Campaign Asset</h3>
+                        <p>Conversion-focused visual designed for special offers and promotional campaigns.</p>
+                    </div>
+                </div>
+
+                <!-- 3. Web Design Mockup -->
+                <div class="work-card reveal">
+                    <div class="media-frame">
+                        <img src="assets/img/web-design-mockup.png" alt="Web Design Mockup" loading="lazy">
+                    </div>
+                    <div class="work-meta">
+                        <span class="work-tag">Web UI/UX</span>
+                        <h3>Landing Page Mockup</h3>
+                        <p>User interface layout designed for smooth navigation and conversion rate optimization.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Digital Marketing Section -->
     <section id="digital-marketing">
         <div class="container">
-            <div class="section-head dm-intro">
-                <p class="eyebrow reveal">Digital Marketing</p>
-                <h2 class="reveal">Digital Marketing</h2>
-                <p class="section-lead reveal">Acquisition, visibility and strategy &mdash; Google Ads, Meta Ads, TikTok Ads, SEO, GA4, GTM, content strategy and social media strategy, applied to real business challenges.</p>
+            <div class="section-head reveal">
+                <p class="eyebrow">Expertise</p>
+                <h2>Digital Marketing &amp; Strategy</h2>
+                <p class="section-lead">Driving growth through performance campaigns, tracking implementations, and SEO optimization.</p>
             </div>
-
+            
             <div class="capability-grid">
                 <div class="capability-card reveal">
                     <div class="capability-num">01</div>
-                    <h3>Digital Acquisition</h3>
+                    <h3>Paid Media &amp; Acquisition</h3>
                     <ul>
-                        <li>Google Ads (Search &amp; PMax)</li>
-                        <li>Meta Ads &amp; TikTok Ads</li>
-                        <li>Qualified lead generation</li>
+                        <li>Google Ads search &amp; display campaigns setup</li>
+                        <li>Meta Ads &amp; TikTok Ads audience targeting</li>
+                        <li>Budget optimization &amp; ROI tracking</li>
                     </ul>
                 </div>
                 <div class="capability-card reveal">
                     <div class="capability-num">02</div>
-                    <h3>Web Visibility &amp; SEO</h3>
+                    <h3>Analytics &amp; Tracking</h3>
                     <ul>
-                        <li>Technical &amp; on-page SEO</li>
-                        <li>Targeted content strategy</li>
-                        <li>Local &amp; global search visibility</li>
+                        <li>Google Analytics (GA4) custom event configuration</li>
+                        <li>Google Tag Manager implementation &amp; audits</li>
+                        <li>Looker Studio performance reporting dashboards</li>
                     </ul>
                 </div>
-                <div class="capability-card reveal">
-                    <div class="capability-num">03</div>
-                    <h3>Data &amp; Analytics</h3>
-                    <ul>
-                        <li>Google Analytics 4 (GA4)</li>
-                        <li>Google Tag Manager (GTM)</li>
-                        <li>Event &amp; behavior tracking</li>
-                    </ul>
-                </div>
-                <div class="capability-card reveal">
-                    <div class="capability-num">04</div>
-                    <h3>Conversion &amp; Automation</h3>
-                    <ul>
-                        <li>High-conversion landing pages</li>
-                        <li>User journey optimization</li>
-                        <li>Forms &amp; CRM / email connectors</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="pull-quote reveal">
-                <h3>Not just attracting. Understanding what happens after the click.</h3>
-                <p>My approach combines SEO, paid advertising, UX and analytics to master the full value chain: before, during and after acquisition.</p>
-            </div>
-
-            <p class="eyebrow reveal" style="margin-bottom:1.6rem;">Case Studies &mdash; Sectors, Not Client Names</p>
-
-            <!-- CASE 01 -->
-            <div class="case-card reveal">
-                <div class="case-header">
-                    <div>
-                        <h3>Case 01 &mdash; Business Services (B2B)</h3>
-                        <p>B2B quote generation &amp; paid media ROI optimization</p>
-                    </div>
-                    <span class="case-tag">Lead Generation</span>
-                </div>
-
-                <p class="case-paragraph">
-                    This project illustrates a complete overhaul of paid acquisition for a B2B services company. By restructuring the ad campaign architecture and automating measurement of every interaction, the setup eliminated wasted budget while creating a continuous, predictable flow of qualified sales opportunities.
-                </p>
-
-                <div class="case-block">
-                    <div class="case-block-title">The Challenge</div>
-                    <p>The company was spending up to &euro;6.39 to bring a single visitor to its site through Google search, making new customer acquisition very costly.</p>
-                </div>
-
-                <div class="case-block">
-                    <div class="case-block-title">The Approach</div>
-                    <p>Complete restructuring of the ad strategy (shifting to smart automated campaigns) and fixing the measurement tools to track every quote request.</p>
-                </div>
-
-                <div class="case-block-title">Impact Snapshot</div>
-                <div class="matrix-grid-3">
-                    <div class="matrix-card">
-                        <div class="matrix-metric-label">Cost per Visitor (CPC)</div>
-                        <div class="matrix-values">
-                            <span class="val-before">&euro;6.39</span>
-                            <span class="val-arrow">&rarr;</span>
-                            <span class="val-after">&euro;0.03</span>
-                        </div>
-                        <div class="matrix-badge">Cost cut by 200x</div>
-                    </div>
-
-                    <div class="matrix-card">
-                        <div class="matrix-metric-label">Qualified Visitor Volume</div>
-                        <div class="matrix-values">
-                            <span class="val-before">25 / month</span>
-                            <span class="val-arrow">&rarr;</span>
-                            <span class="val-after">552</span>
-                        </div>
-                        <div class="matrix-badge">Visibility &times;20 in 8 days</div>
-                    </div>
-
-                    <div class="matrix-card">
-                        <div class="matrix-metric-label">Quote Opportunities Created</div>
-                        <div class="matrix-values">
-                            <span class="val-before">0 / Not measured</span>
-                            <span class="val-arrow">&rarr;</span>
-                            <span class="val-after">68</span>
-                        </div>
-                        <div class="matrix-badge">Continuous flow within 1 week</div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- CASE 02 -->
-            <div class="case-card reveal">
-                <div class="case-header">
-                    <div>
-                        <h3>Case 02 &mdash; Vehicle Rental</h3>
-                        <p>Direct bookings &amp; customer capture without intermediaries</p>
-                    </div>
-                    <span class="case-tag">SEO &amp; Local Ads</span>
-                </div>
-
-                <p class="case-paragraph">
-                    Focused on the tourism rental sector, this case demonstrates the power of a targeted search strategy from the moment travel intent begins. By capturing prospects before departure and optimizing the online booking experience, the business reduced its reliance on the commissions imposed by third-party platforms.
-                </p>
-
-                <div class="case-block">
-                    <div class="case-block-title">The Challenge</div>
-                    <p>Filling the vehicle booking calendar against strong local competition, without relying exclusively on third-party platforms that charge high commissions.</p>
-                </div>
-
-                <div class="case-block">
-                    <div class="case-block-title">The Approach</div>
-                    <p>Positioning the website on strategic Google searches made by travelers (at home and on-site) before and during their stay, combined with targeted local ads.</p>
-                </div>
-
-                <div class="case-block-title">Impact Snapshot</div>
-                <div class="matrix-grid-3">
-                    <div class="matrix-card">
-                        <div class="matrix-metric-label">Google Click-Through Rate</div>
-                        <div class="matrix-values">
-                            <span class="val-after">19.2%</span>
-                        </div>
-                        <div class="visual-meter-container">
-                            <div class="meter-bg"><div class="meter-fill" style="width: 85%;"></div></div>
-                            <span style="font-size:0.75rem; color:var(--gray);">Industry average: ~3%</span>
-                        </div>
-                    </div>
-
-                    <div class="matrix-card">
-                        <div class="matrix-metric-label">Target Market Penetration</div>
-                        <div class="matrix-values">
-                            <span class="val-after" style="font-size:1.2rem;">France + Local</span>
-                        </div>
-                        <div class="matrix-badge">Captured before departure</div>
-                    </div>
-
-                    <div class="matrix-card">
-                        <div class="matrix-metric-label">Direct Sales</div>
-                        <div class="matrix-values">
-                            <span class="val-after" style="font-size:1.2rem;">+100% Direct</span>
-                        </div>
-                        <div class="matrix-badge">Independence from OTAs</div>
-                    </div>
-                </div>
-
-                <div class="takeaway-box">
-                    <div class="case-block-title">What This Means For Your Business</div>
-                    <ul>
-                        <li><strong>Immediate visibility:</strong> your business is placed in front of direct competitors, at the exact moment future customers are searching for your services.</li>
-                        <li><strong>Strict budget control:</strong> every euro invested is tracked, so you know exactly how much you spend and how many customers it brings you.</li>
-                        <li><strong>Automation:</strong> quote requests and phone calls are routed directly to your sales team without delay.</li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- CASE 03 -->
-            <div class="case-card reveal">
-                <div class="case-header">
-                    <div>
-                        <h3>Case 03 &mdash; Education &amp; Training Institution</h3>
-                        <p>Analytics overhaul &amp; data-driven student recruitment</p>
-                    </div>
-                    <span class="case-tag">Analytics &amp; Data SEO</span>
-                </div>
-
-                <p class="case-paragraph">
-                    This case illustrates the highly analytical side of digital marketing. By deploying custom tracking (GA4 / GTM) and filtering out internal noise, leadership was able to manage student recruitment with real metrics on applicants' geographic origin and interest in each program.
-                </p>
-
-                <div class="case-block">
-                    <div class="case-block-title">The Challenge</div>
-                    <p>The institution had no clear view of where its applicants came from (cities, countries) or their real interest in its programs, and its data was distorted by daily visits from its own staff.</p>
-                </div>
-
-                <div class="case-block">
-                    <div class="case-block-title">The Approach</div>
-                    <p>Built a complete measurement and filtering system (GA4 / GTM) to isolate internal traffic and give leadership a reliable dashboard focused on application generation (SEO + behavior).</p>
-                </div>
-
-                <div class="matrix-grid-2">
-                    <div class="chart-box">
-                        <div class="case-block-title">Applicant Origin &amp; Data Filtering</div>
-                        <div class="chart-container-wrapper">
-                            <canvas id="geoChart"></canvas>
-                        </div>
-                    </div>
-
-                    <div class="chart-box">
-                        <div class="case-block-title">Average Engagement by Step (Minutes)</div>
-                        <div class="chart-container-wrapper">
-                            <canvas id="engagementChart"></canvas>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="takeaway-box">
-                    <div class="case-block-title">Key Takeaways</div>
-                    <ul>
-                        <li><strong>Decisions based on real data:</strong> recommended exclusion of the 64 internal staff visits to count only genuine applicants.</li>
-                        <li><strong>High-performing SEO acquisition:</strong> 160 new users (60%+ of traffic) from Google, organically.</li>
-                        <li><strong>Profitable application funnel:</strong> 2 min 16s of attention on program pages and 1 min 43s on the international application file.</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- MY APPROACH -->
-    <section id="approach">
-        <div class="container approach-inner">
-            <p class="eyebrow reveal">My Approach</p>
-            <h2 class="reveal">Creative mind. <span class="script">Marketing perspective.</span></h2>
-            <p class="reveal">My background in digital marketing allows me to approach content from both sides: creative storytelling and marketing strategy.</p>
-            <p class="reveal">I don't just think about how content looks. I think about why people stop, watch, remember and act.</p>
-        </div>
-    </section>
-
-    <!-- CREATIVE FOCUS -->
-    <section id="creative-focus">
-        <div class="container">
-            <div class="section-head" style="margin-bottom:2rem;">
-                <p class="eyebrow reveal">Creative Focus</p>
-                <h2 class="reveal">Creative Focus</h2>
-            </div>
-            <div class="focus-list reveal">
-                <span class="focus-pill">Beauty</span>
-                <span class="focus-pill">Skincare</span>
-                <span class="focus-pill">Haircare</span>
-                <span class="focus-pill">Fashion</span>
-                <span class="focus-pill">Jewelry</span>
-                <span class="focus-pill">Perfume</span>
-                <span class="focus-pill">Luxury Lifestyle</span>
-                <span class="focus-pill">Travel</span>
-                <span class="focus-pill">Hotels</span>
-                <span class="focus-pill">Restaurants</span>
-                <span class="focus-pill">Tech &amp; Gadgets</span>
             </div>
         </div>
     </section>
 
     <!-- Contact Section -->
     <section class="contact" id="contact">
-        <div class="container">
-            <div class="contact-wrapper">
-                <div class="contact-info">
-                    <p class="eyebrow reveal">Contact</p>
-                    <h2 class="reveal">Let's create something meaningful.</h2>
-                    <p class="reveal">Open to creative collaborations, social media projects and digital marketing opportunities.</p>
-                    <a href="mailto:ratsitoarivonjyf@gmail.com" class="btn btn-primary reveal">Let's Connect</a>
+        <div class="container contact-wrapper">
+            <div class="contact-info reveal">
+                <p class="eyebrow">Get in Touch</p>
+                <h2>Let's build something remarkable together.</h2>
+                <p>Have a project in mind, a digital strategy to deploy, or a content campaign to launch? Reach out and let's discuss how we can work together.</p>
+                
+                <div class="contact-details">
+                    <a href="mailto:contact@fenohasina.mg" class="contact-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                        contact@fenohasina.mg
+                    </a>
+                </div>
+            </div>
 
-                    <div class="contact-details reveal">
-                        <a href="mailto:ratsitoarivonjyf@gmail.com" class="contact-item link-animated">
-                            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M3 6h18v12H3V6Z"/><path d="m3 6 9 7 9-7"/></svg>
-                            ratsitoarivonjyf@gmail.com
-                        </a>
-                        <a href="https://www.linkedin.com/in/fenohasina-a-ratsitoarivonjy-andrian" target="_blank" rel="noopener" class="contact-item link-animated">
-                            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="1.5"/><path d="M7.5 10.5v6M7.5 7.75v.01M12 16.5v-4c0-1.1.9-2 2-2s2 .9 2 2v4"/></svg>
-                            LinkedIn
-                        </a>
-                        <a href="https://linktr.ee/fenohasina_andrian" target="_blank" rel="noopener" class="contact-item link-animated">
-                            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M9 15 15 9M10.5 6.5 12 5a3.5 3.5 0 1 1 5 5l-1.5 1.5M13.5 17.5 12 19a3.5 3.5 0 1 1-5-5l1.5-1.5"/></svg>
-                            More Links
-                        </a>
-                        <span class="contact-item">
-                            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M12 21s7-6.5 7-11.5A7 7 0 0 0 5 9.5C5 14.5 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.2"/></svg>
-                            Antananarivo, Madagascar
-                        </span>
+            <div class="contact-form reveal">
+                <form action="#" method="POST">
+                    <div class="form-group">
+                        <label for="name">Your Name</label>
+                        <input type="text" id="name" name="name" required>
                     </div>
-                </div>
-
-                <!-- Form connected to FormSubmit -->
-                <div class="contact-form reveal">
-                    <form action="https://formsubmit.co/ratsitoarivonjyf@gmail.com" method="POST">
-                        <input type="hidden" name="_subject" value="New message from your portfolio!">
-                        <input type="hidden" name="_template" value="table">
-                        <input type="hidden" name="_captcha" value="false">
-
-                        <div class="form-group">
-                            <label for="name">Full Name</label>
-                            <input type="text" id="name" name="name" placeholder="e.g. Jane Doe" required>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="email">Email Address</label>
-                            <input type="email" id="email" name="email" placeholder="name@example.com" required>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="subject">Project Subject</label>
-                            <input type="text" id="subject" name="subject" placeholder="Content collaboration, social media, marketing..." required>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="message">Message / Project Details</label>
-                            <textarea id="message" name="message" rows="5" placeholder="Briefly describe what you have in mind..." required></textarea>
-                        </div>
-
-                        <button type="submit" class="btn btn-primary submit-btn">Send Message</button>
-                    </form>
-                </div>
+                    <div class="form-group">
+                        <label for="email">Your Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Your Message</label>
+                        <textarea id="message" name="message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary submit-btn">Send Message</button>
+                </form>
             </div>
         </div>
     </section>
@@ -1646,155 +1051,14 @@
     <footer>
         <div class="container">
             <div class="footer-links">
-                <a href="https://www.linkedin.com/in/fenohasina-a-ratsitoarivonjy-andrian" target="_blank" rel="noopener" class="link-animated">LinkedIn</a>
-                <a href="https://linktr.ee/fenohasina_andrian" target="_blank" rel="noopener" class="link-animated">Linktree</a>
-                <a href="mailto:ratsitoarivonjyf@gmail.com" class="link-animated">Email</a>
+                <a href="#about" class="link-animated">About</a>
+                <a href="#content" class="link-animated">Content</a>
+                <a href="#social-media" class="link-animated">Social Media</a>
+                <a href="#digital-marketing" class="link-animated">Digital Marketing</a>
             </div>
             <p>&copy; 2026 Fenohasina Ratsitoarivonjy. All rights reserved.</p>
         </div>
     </footer>
 
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-            /* ---- Mobile nav toggle ---- */
-            var navToggle = document.getElementById('navToggle');
-            var navLinks = document.getElementById('navLinks');
-            if (navToggle && navLinks) {
-                navToggle.addEventListener('click', function () {
-                    var isOpen = navLinks.classList.toggle('is-open');
-                    navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-                });
-                navLinks.querySelectorAll('a').forEach(function (a) {
-                    a.addEventListener('click', function () {
-                        navLinks.classList.remove('is-open');
-                        navToggle.setAttribute('aria-expanded', 'false');
-                    });
-                });
-            }
-
-            /* ---- Scroll reveal ---- */
-            if ('IntersectionObserver' in window) {
-                var revealObserver = new IntersectionObserver(function (entries, obs) {
-                    entries.forEach(function (entry) {
-                        if (entry.isIntersecting) {
-                            entry.target.classList.add('is-visible');
-                            obs.unobserve(entry.target);
-                        }
-                    });
-                }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
-                document.querySelectorAll('.reveal').forEach(function (el) {
-                    revealObserver.observe(el);
-                });
-            } else {
-                document.querySelectorAll('.reveal').forEach(function (el) {
-                    el.classList.add('is-visible');
-                });
-            }
-
-            /* ---- Media frames: let real photos/videos define their own ratio ---- */
-            document.querySelectorAll('.media-frame').forEach(function (frame) {
-                var media = frame.querySelector('video, img');
-                if (!media) return;
-                var makeNatural = function () { frame.classList.add('natural'); };
-                if (media.tagName === 'VIDEO') {
-                    media.addEventListener('loadedmetadata', makeNatural);
-                } else {
-                    if (media.complete && media.naturalWidth) makeNatural();
-                    media.addEventListener('load', makeNatural);
-                }
-            });
-
-            /* ---- Subtle 3D tilt on the hero photo (desktop pointer devices only) ---- */
-            var tiltWrap = document.getElementById('photoTilt');
-            var photoCard = document.getElementById('photoCard');
-            var canTilt = tiltWrap && photoCard && !prefersReduced &&
-                window.matchMedia('(hover: hover) and (pointer: fine)').matches;
-
-            if (canTilt) {
-                var maxDeg = 6;
-                tiltWrap.addEventListener('mousemove', function (e) {
-                    var rect = tiltWrap.getBoundingClientRect();
-                    var x = (e.clientX - rect.left) / rect.width - 0.5;
-                    var y = (e.clientY - rect.top) / rect.height - 0.5;
-                    photoCard.style.transform =
-                        'rotateX(' + (-y * maxDeg).toFixed(2) + 'deg) rotateY(' + (x * maxDeg).toFixed(2) + 'deg)';
-                });
-                tiltWrap.addEventListener('mouseleave', function () {
-                    photoCard.style.transform = 'rotateX(0deg) rotateY(0deg)';
-                });
-            }
-
-            /* ---- Chart.js: Digital Marketing case study charts ---- */
-            var geoEl = document.getElementById('geoChart');
-            if (geoEl && window.Chart) {
-                Chart.defaults.color = '#6F6F6F';
-                Chart.defaults.font.family = "'Inter', sans-serif";
-
-                new Chart(geoEl.getContext('2d'), {
-                    type: 'bar',
-                    data: {
-                        labels: ['Paris', 'Google SEO', 'Internal Traffic (Excluded)', 'Cotonou', 'Dakar', 'Grenoble', 'Marseille'],
-                        datasets: [{
-                            label: 'Visitors / Sessions',
-                            data: [61, 160, 64, 15, 12, 6, 5],
-                            backgroundColor: ['#C2A878', '#161616', '#E7E3DE', '#C2A878', '#C2A878', '#C2A878', '#C2A878'],
-                            borderRadius: 3
-                        }]
-                    },
-                    options: {
-                        responsive: true,
-                        maintainAspectRatio: false,
-                        plugins: {
-                            legend: { display: false },
-                            tooltip: {
-                                callbacks: {
-                                    label: function (context) { return context.raw + ' users'; }
-                                }
-                            }
-                        },
-                        scales: {
-                            x: { grid: { display: false } },
-                            y: { grid: { color: '#E7E3DE' } }
-                        }
-                    }
-                });
-
-                new Chart(document.getElementById('engagementChart').getContext('2d'), {
-                    type: 'bar',
-                    data: {
-                        labels: ['Program Pages', 'International Application', 'BTS & Bachelor', 'Home Page'],
-                        datasets: [{
-                            label: 'Average Engagement (Minutes)',
-                            data: [2.26, 1.71, 1.16, 1.03],
-                            backgroundColor: ['#C2A878', '#161616', '#8a6f47', '#6F6F6F'],
-                            borderRadius: 3
-                        }]
-                    },
-                    options: {
-                        indexAxis: 'y',
-                        responsive: true,
-                        maintainAspectRatio: false,
-                        plugins: {
-                            legend: { display: false },
-                            tooltip: {
-                                callbacks: {
-                                    label: function (context) { return context.raw + ' min average'; }
-                                }
-                            }
-                        },
-                        scales: {
-                            x: {
-                                grid: { color: '#E7E3DE' },
-                                title: { display: true, text: 'Average duration (Minutes)', color: '#6F6F6F' }
-                            },
-                            y: { grid: { display: false } }
-                        }
-                    }
-                });
-            }
-        });
-    </script>
 </body>
 </html>
