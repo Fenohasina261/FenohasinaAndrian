@@ -1,0 +1,1800 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fenohasina Ratsitoarivonjy | Creative Content &amp; Digital Marketing</title>
+    <meta name="description" content="Fenohasina Ratsitoarivonjy — creative content creator and digital marketer. Visual storytelling, social media content and digital marketing strategy.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Allura&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Chart.js CDN for the Digital Marketing case-study charts -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        :root {
+            --cream: #F8F6F3;
+            --white: #FFFFFF;
+            --ink: #161616;
+            --gray: #6F6F6F;
+            --gold: #C2A878;
+            --line: #E7E3DE;
+
+            --font-serif: 'Cormorant Garamond', serif;
+            --font-script: 'Allura', cursive;
+            --font-sans: 'Inter', sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--cream);
+            color: var(--ink);
+            font-family: var(--font-sans);
+            line-height: 1.65;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        img, video {
+            max-width: 100%;
+        }
+
+        h1, h2, h3 {
+            font-family: var(--font-serif);
+            font-weight: 500;
+            line-height: 1.15;
+            letter-spacing: -0.01em;
+            color: var(--ink);
+        }
+
+        .script {
+            font-family: var(--font-script);
+            font-style: italic;
+            font-weight: 400;
+            color: var(--gold);
+            letter-spacing: 0.01em;
+        }
+
+        a {
+            color: inherit;
+        }
+
+        .container {
+            max-width: 1180px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        .eyebrow {
+            font-family: var(--font-sans);
+            font-size: 0.78rem;
+            font-weight: 600;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 1rem;
+        }
+
+        .section-lead {
+            color: var(--gray);
+            font-size: 1.05rem;
+            max-width: 640px;
+        }
+
+        section {
+            padding: 6rem 0;
+        }
+
+        /* ---------- Scroll reveal (progressive enhancement only) ---------- */
+        .reveal {
+            opacity: 1;
+            transform: none;
+        }
+        @media (prefers-reduced-motion: no-preference) {
+            .reveal {
+                opacity: 0;
+                transform: translateY(26px);
+                transition: opacity 0.85s cubic-bezier(.2,.6,.2,1), transform 0.85s cubic-bezier(.2,.6,.2,1);
+            }
+            .reveal.is-visible {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ---------- Links with animated underline ---------- */
+        .link-animated {
+            position: relative;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .link-animated::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -3px;
+            width: 0;
+            height: 1px;
+            background: var(--gold);
+            transition: width 0.35s ease;
+        }
+        .link-animated:hover::after {
+            width: 100%;
+        }
+
+        /* ---------- Buttons ---------- */
+        .btn {
+            font-family: var(--font-sans);
+            font-size: 0.82rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            text-decoration: none;
+            display: inline-block;
+            padding: 0.95rem 1.9rem;
+            border-radius: 2px;
+            border: 1px solid var(--ink);
+            transition: transform 0.35s ease, background-color 0.35s ease, color 0.35s ease, border-color 0.35s ease;
+        }
+        .btn-primary {
+            background: var(--ink);
+            color: var(--white);
+        }
+        .btn-primary:hover {
+            background: var(--gold);
+            border-color: var(--gold);
+            color: var(--ink);
+            transform: translateY(-2px);
+        }
+        .btn-outline {
+            background: transparent;
+            color: var(--ink);
+        }
+        .btn-outline:hover {
+            border-color: var(--gold);
+            color: #8a6f47;
+            transform: translateY(-2px);
+        }
+
+        /* ---------- Header / Nav ---------- */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(248, 246, 243, 0.88);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--line);
+        }
+
+        .nav-container {
+            max-width: 1180px;
+            margin: 0 auto;
+            padding: 1.15rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: var(--font-serif);
+            font-style: italic;
+            font-size: 1.4rem;
+            letter-spacing: 0.01em;
+            color: var(--ink);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2.1rem;
+            align-items: center;
+        }
+
+        .nav-links a:not(.btn) {
+            font-size: 0.82rem;
+            font-weight: 500;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            color: var(--gray);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .nav-links a:not(.btn):hover {
+            color: var(--ink);
+        }
+
+        .nav-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.4rem;
+        }
+        .nav-toggle span {
+            width: 22px;
+            height: 1px;
+            background: var(--ink);
+            display: block;
+        }
+
+        /* ---------- Hero ---------- */
+        .hero {
+            padding: 9.5rem 0 5rem 0;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 3.5rem;
+            align-items: center;
+        }
+
+        .hero h1 {
+            font-size: 3.4rem;
+            margin-bottom: 1.4rem;
+        }
+
+        .hero h1 .script {
+            font-size: 1.15em;
+        }
+
+        .hero-lead {
+            color: var(--gray);
+            font-size: 1.12rem;
+            max-width: 480px;
+            margin-bottom: 2.4rem;
+        }
+
+        .hero-ctas {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        /* ---------- 3D photo card ---------- */
+        .hero-photo {
+            position: relative;
+            display: flex;
+            justify-content: center;
+        }
+
+        .photo-decor {
+            position: absolute;
+            inset: -10% -6%;
+            pointer-events: none;
+            z-index: 0;
+        }
+        .photo-decor span {
+            position: absolute;
+            border-radius: 50%;
+        }
+        .decor-ring {
+            width: 130px;
+            height: 130px;
+            border: 1px solid var(--gold);
+            opacity: 0.35;
+            top: 4%;
+            right: 4%;
+        }
+        .decor-circle {
+            width: 60px;
+            height: 60px;
+            background: var(--gold);
+            opacity: 0.12;
+            bottom: 8%;
+            left: 0%;
+        }
+        .decor-dot {
+            width: 10px;
+            height: 10px;
+            background: var(--gold);
+            opacity: 0.55;
+            bottom: 30%;
+            right: -2%;
+        }
+        @media (prefers-reduced-motion: no-preference) {
+            .decor-ring { animation: floatSlow 7s ease-in-out infinite; }
+            .decor-circle { animation: floatSlow 9s ease-in-out infinite reverse; }
+            .decor-dot { animation: floatSlow 5.5s ease-in-out infinite; }
+        }
+        @keyframes floatSlow {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-14px); }
+        }
+
+        .photo-card-wrap {
+            perspective: 1200px;
+            position: relative;
+            z-index: 1;
+            width: min(360px, 82vw);
+        }
+
+        .photo-card {
+            position: relative;
+            aspect-ratio: 4 / 5;
+            transform-style: preserve-3d;
+            transition: transform 0.5s cubic-bezier(.2,.7,.2,1);
+            border: 1px solid var(--gold);
+            border-radius: 3px;
+            background: var(--white);
+            box-shadow:
+                0 0 45px rgba(194, 168, 120, 0.22),
+                0 22px 45px rgba(22, 22, 22, 0.10);
+            overflow: hidden;
+        }
+
+        .photo-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .photo-placeholder {
+            display: none;
+            width: 100%;
+            height: 100%;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 0.6rem;
+            background: linear-gradient(160deg, var(--cream), var(--line));
+        }
+        .photo-placeholder .ph-initials {
+            font-family: var(--font-serif);
+            font-size: 3.4rem;
+            color: var(--gold);
+            letter-spacing: 0.05em;
+        }
+        .photo-placeholder .ph-caption {
+            font-size: 0.72rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--gray);
+        }
+
+        @media (hover: none) {
+            .photo-card { transition: none; }
+        }
+
+        /* ---------- Tools marquee ---------- */
+        .tools-section {
+            padding: 3.5rem 0;
+        }
+        .tools-title {
+            text-align: center;
+            font-size: 0.78rem;
+            font-weight: 600;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--gray);
+            margin-bottom: 2rem;
+        }
+
+        .marquee-viewport {
+            overflow: hidden;
+            background: var(--line);
+            border-top: 1px solid var(--gold);
+            border-bottom: 1px solid var(--gold);
+        }
+
+        .marquee-track {
+            display: flex;
+            width: max-content;
+        }
+        @media (prefers-reduced-motion: no-preference) {
+            .marquee-track {
+                animation: marqueeScroll 55s linear infinite;
+            }
+            .marquee-viewport:hover .marquee-track {
+                animation-play-state: paused;
+            }
+        }
+        @keyframes marqueeScroll {
+            from { transform: translateX(0); }
+            to { transform: translateX(-50%); }
+        }
+
+        .marquee-group {
+            display: flex;
+            align-items: baseline;
+            gap: 0.9rem;
+            padding: 1.5rem 0;
+            white-space: nowrap;
+        }
+
+        .tool-cat {
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-right: 0.3rem;
+        }
+        .tool-items {
+            font-size: 0.95rem;
+            color: var(--ink);
+            margin-right: 0.9rem;
+        }
+        .tool-sep {
+            color: var(--gold);
+            margin-right: 0.9rem;
+            opacity: 0.6;
+        }
+
+        /* ---------- About ---------- */
+        .about-inner {
+            max-width: 700px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .about-inner h2 {
+            font-size: 2.6rem;
+            margin-bottom: 1.6rem;
+        }
+        .about-inner p {
+            color: var(--gray);
+            font-size: 1.08rem;
+            margin-bottom: 1.1rem;
+        }
+
+        /* ---------- Section header (shared) ---------- */
+        .section-head {
+            margin-bottom: 3.2rem;
+        }
+        .section-head h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        /* ---------- Work grids (Content / Social Media) ---------- */
+        .work-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            align-items: start;
+        }
+
+        .work-card {
+            background: var(--white);
+            border: 1px solid var(--line);
+            transition: border-color 0.35s ease, transform 0.35s ease;
+        }
+        .work-card:hover {
+            border-color: var(--gold);
+        }
+
+        .media-frame {
+            position: relative;
+            aspect-ratio: 4 / 5;
+            background: var(--line);
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .media-frame.natural {
+            aspect-ratio: auto;
+        }
+        .media-frame video,
+        .media-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+            transition: transform 0.6s ease;
+            background: var(--line);
+        }
+        .media-frame.natural video,
+        .media-frame.natural img {
+            height: auto;
+        }
+        .work-card:hover .media-frame video,
+        .work-card:hover .media-frame img {
+            transform: scale(1.02);
+        }
+
+        .media-placeholder {
+            display: none;
+            width: 100%;
+            height: 100%;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            text-align: center;
+            padding: 1.5rem;
+        }
+        .media-placeholder .ph-tag {
+            font-family: var(--font-serif);
+            font-style: italic;
+            font-size: 1.3rem;
+            color: var(--gold);
+        }
+        .media-placeholder .ph-note {
+            font-size: 0.7rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--gray);
+        }
+
+        .work-meta {
+            padding: 1.5rem 1.6rem 1.8rem;
+        }
+        .work-tag {
+            display: inline-block;
+            font-size: 0.68rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--gold);
+            border: 1px solid var(--gold);
+            padding: 0.25rem 0.6rem;
+            margin-bottom: 0.9rem;
+        }
+        .work-meta h3 {
+            font-size: 1.35rem;
+            margin-bottom: 0.55rem;
+        }
+        .work-meta p {
+            color: var(--gray);
+            font-size: 0.92rem;
+        }
+
+        /* ---------- Digital Marketing ---------- */
+        .dm-intro {
+            margin-bottom: 3rem;
+        }
+
+        .capability-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.4rem;
+            margin-bottom: 4.5rem;
+        }
+        .capability-card {
+            background: var(--white);
+            border: 1px solid var(--line);
+            padding: 2.2rem;
+            transition: border-color 0.3s ease, transform 0.3s ease;
+        }
+        .capability-card:hover {
+            border-color: var(--gold);
+            transform: translateY(-3px);
+        }
+        .capability-num {
+            font-size: 0.82rem;
+            font-weight: 700;
+            color: var(--gold);
+            margin-bottom: 0.9rem;
+        }
+        .capability-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.9rem;
+            font-family: var(--font-sans);
+            font-weight: 600;
+        }
+        .capability-card ul {
+            list-style: none;
+            color: var(--gray);
+            font-size: 0.92rem;
+        }
+        .capability-card ul li {
+            margin-bottom: 0.5rem;
+            padding-left: 1.1rem;
+            position: relative;
+        }
+        .capability-card ul li::before {
+            content: "—";
+            color: var(--gold);
+            position: absolute;
+            left: 0;
+        }
+
+        .pull-quote {
+            border-left: 2px solid var(--gold);
+            padding: 0.5rem 0 0.5rem 1.8rem;
+            margin-bottom: 4.5rem;
+        }
+        .pull-quote h3 {
+            font-style: italic;
+            font-size: 1.7rem;
+            margin-bottom: 0.8rem;
+        }
+        .pull-quote p {
+            color: var(--gray);
+            font-size: 1rem;
+            max-width: 640px;
+        }
+
+        .case-card {
+            background: var(--white);
+            border: 1px solid var(--line);
+            padding: 2.6rem;
+            margin-bottom: 2.5rem;
+        }
+        .case-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 1.5rem;
+            margin-bottom: 1.6rem;
+            border-bottom: 1px solid var(--line);
+            padding-bottom: 1.4rem;
+            flex-wrap: wrap;
+        }
+        .case-header h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.4rem;
+        }
+        .case-header p {
+            color: var(--gray);
+            font-size: 0.95rem;
+        }
+        .case-tag {
+            border: 1px solid var(--gold);
+            color: var(--gold);
+            padding: 0.35rem 0.9rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            white-space: nowrap;
+        }
+        .case-paragraph {
+            color: var(--gray);
+            font-size: 0.98rem;
+            margin-bottom: 1.6rem;
+            line-height: 1.75;
+        }
+        .case-block {
+            margin-bottom: 1.4rem;
+        }
+        .case-block-title {
+            font-weight: 700;
+            color: var(--ink);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            margin-bottom: 0.6rem;
+        }
+        .case-block p {
+            color: var(--gray);
+            font-size: 0.92rem;
+        }
+
+        .matrix-grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.2rem;
+            margin: 1.2rem 0;
+        }
+        .matrix-grid-2 {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.4rem;
+            margin: 1.2rem 0;
+        }
+        .matrix-card {
+            background: var(--cream);
+            border: 1px solid var(--line);
+            padding: 1.5rem;
+        }
+        .matrix-metric-label {
+            font-size: 0.78rem;
+            color: var(--gray);
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            font-weight: 600;
+            margin-bottom: 0.9rem;
+        }
+        .matrix-values {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 0.9rem;
+            flex-wrap: wrap;
+            gap: 0.3rem;
+        }
+        .val-before {
+            font-size: 1rem;
+            color: var(--gray);
+            text-decoration: line-through;
+            opacity: 0.8;
+        }
+        .val-arrow {
+            color: var(--gold);
+            font-size: 0.9rem;
+        }
+        .val-after {
+            font-family: var(--font-serif);
+            font-size: 1.9rem;
+            font-weight: 600;
+            color: var(--ink);
+        }
+        .matrix-badge {
+            display: inline-block;
+            background: var(--white);
+            color: var(--ink);
+            border: 1px solid var(--gold);
+            padding: 0.35rem 0.6rem;
+            font-size: 0.78rem;
+            font-weight: 600;
+            width: 100%;
+            text-align: center;
+        }
+
+        .visual-meter-container {
+            margin-top: 0.8rem;
+        }
+        .meter-bg {
+            background: var(--line);
+            height: 8px;
+            overflow: hidden;
+            margin-bottom: 0.5rem;
+        }
+        .meter-fill {
+            height: 100%;
+            background: var(--gold);
+        }
+
+        .chart-box {
+            background: var(--cream);
+            border: 1px solid var(--line);
+            padding: 1.5rem;
+            margin-top: 1rem;
+        }
+        .chart-container-wrapper {
+            position: relative;
+            height: 260px;
+            width: 100%;
+        }
+
+        .takeaway-box {
+            border: 1px solid var(--line);
+            padding: 1.6rem 1.8rem;
+            margin-top: 1.4rem;
+        }
+        .takeaway-box ul {
+            list-style: none;
+            color: var(--gray);
+            font-size: 0.92rem;
+        }
+        .takeaway-box ul li {
+            margin-bottom: 0.6rem;
+            padding-left: 1.2rem;
+            position: relative;
+        }
+        .takeaway-box ul li::before {
+            content: "—";
+            color: var(--gold);
+            position: absolute;
+            left: 0;
+        }
+        .takeaway-box ul li strong {
+            color: var(--ink);
+        }
+
+        /* ---------- My Approach ---------- */
+        .approach-inner {
+            max-width: 720px;
+        }
+        .approach-inner h2 {
+            font-size: 2.6rem;
+            margin-bottom: 1.6rem;
+        }
+        .approach-inner h2 .script {
+            display: inline-block;
+        }
+        .approach-inner p {
+            color: var(--gray);
+            font-size: 1.08rem;
+            margin-bottom: 1.1rem;
+        }
+
+        /* ---------- Creative Focus ---------- */
+        .focus-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.9rem;
+        }
+        .focus-pill {
+            font-size: 0.82rem;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            color: var(--ink);
+            border: 1px solid var(--line);
+            padding: 0.7rem 1.2rem;
+            transition: border-color 0.3s ease, color 0.3s ease;
+        }
+        .focus-pill:hover {
+            border-color: var(--gold);
+            color: #8a6f47;
+        }
+
+        /* ---------- Contact ---------- */
+        .contact {
+            padding-bottom: 7rem;
+        }
+        .contact-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3.5rem;
+            align-items: start;
+        }
+        .contact-info h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.2rem;
+        }
+        .contact-info > p {
+            color: var(--gray);
+            margin-bottom: 2rem;
+            font-size: 1.05rem;
+            max-width: 460px;
+        }
+        .contact-details {
+            display: flex;
+            flex-direction: column;
+            gap: 1.1rem;
+            margin-top: 2rem;
+        }
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.9rem;
+            color: var(--ink);
+            font-weight: 500;
+            font-size: 0.95rem;
+            text-decoration: none;
+        }
+        .contact-item svg {
+            width: 18px;
+            height: 18px;
+            stroke: var(--gold);
+            flex-shrink: 0;
+        }
+
+        .contact-form {
+            background: var(--white);
+            border: 1px solid var(--line);
+            padding: 2.6rem;
+        }
+        .form-group {
+            margin-bottom: 1.4rem;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 0.03em;
+            text-transform: uppercase;
+            color: var(--gray);
+        }
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.85rem 1rem;
+            background: var(--cream);
+            border: 1px solid var(--line);
+            border-radius: 0;
+            color: var(--ink);
+            font-family: var(--font-sans);
+            font-size: 0.95rem;
+            transition: border-color 0.3s ease;
+        }
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--gold);
+        }
+        .submit-btn {
+            width: 100%;
+            padding: 1rem;
+            font-size: 0.85rem;
+        }
+
+        footer {
+            border-top: 1px solid var(--line);
+            padding: 2.4rem 0;
+            text-align: center;
+            color: var(--gray);
+            font-size: 0.82rem;
+        }
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        /* ---------- Responsive ---------- */
+        @media (max-width: 980px) {
+            .hero-grid {
+                grid-template-columns: 1fr;
+            }
+            .hero-photo {
+                order: -1;
+                margin-bottom: 1rem;
+            }
+            .work-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .contact-wrapper {
+                grid-template-columns: 1fr;
+            }
+            .capability-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 760px) {
+            .nav-links {
+                position: fixed;
+                top: 62px;
+                left: 0;
+                right: 0;
+                background: var(--cream);
+                border-bottom: 1px solid var(--line);
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 1.5rem 1.5rem 2rem;
+                gap: 1.3rem;
+                transform: translateY(-8px);
+                opacity: 0;
+                visibility: hidden;
+                transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
+            }
+            .nav-links.is-open {
+                transform: translateY(0);
+                opacity: 1;
+                visibility: visible;
+            }
+            .nav-toggle {
+                display: flex;
+            }
+            .hero {
+                padding: 7.5rem 0 3rem 0;
+            }
+            .hero h1 {
+                font-size: 2.4rem;
+            }
+            section {
+                padding: 4rem 0;
+            }
+            .section-head h2,
+            .about-inner h2,
+            .approach-inner h2,
+            .contact-info h2 {
+                font-size: 2rem;
+            }
+            .work-grid {
+                grid-template-columns: 1fr;
+            }
+            .matrix-grid-3,
+            .matrix-grid-2 {
+                grid-template-columns: 1fr;
+            }
+            .case-card {
+                padding: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header>
+        <div class="nav-container">
+            <a href="#top" class="logo">Fenohasina</a>
+            <nav>
+                <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
+                    <span></span><span></span><span></span>
+                </button>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#content">Content</a></li>
+                    <li><a href="#social-media">Social Media</a></li>
+                    <li><a href="#digital-marketing">Digital Marketing</a></li>
+                    <li><a href="#contact" class="btn btn-primary">Let's Connect</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="top">
+        <div class="container hero-grid">
+            <div class="hero-text">
+                <p class="eyebrow reveal">Content Creator &middot; Digital Marketer</p>
+                <h1 class="reveal"><span class="script">Creative</span> Content &amp; Digital Marketing</h1>
+                <p class="hero-lead reveal">I create visual stories and digital strategies that help brands get noticed, remembered and chosen.</p>
+                <div class="hero-ctas reveal">
+                    <a href="#content" class="btn btn-primary">Explore My Work</a>
+                    <a href="#contact" class="btn btn-outline">Let's Connect</a>
+                </div>
+            </div>
+
+            <div class="hero-photo reveal">
+                <div class="photo-decor" aria-hidden="true">
+                    <span class="decor-ring"></span>
+                    <span class="decor-circle"></span>
+                    <span class="decor-dot"></span>
+                </div>
+                <div class="photo-card-wrap" id="photoTilt">
+                    <div class="photo-card" id="photoCard">
+                        <img src="assets/img/profile-photo.jpg" alt="Portrait of Fenohasina Ratsitoarivonjy" loading="eager"
+                             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div class="photo-placeholder">
+                            <span class="ph-initials">FR</span>
+                            <span class="ph-caption">Fenohasina Ratsitoarivonjy</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tools Marquee -->
+    <section class="tools-section" id="tools">
+        <p class="tools-title reveal">Tools I Work With</p>
+        <div class="marquee-viewport">
+            <div class="marquee-track">
+                <div class="marquee-group">
+                    <span class="tool-cat">Paid Media</span><span class="tool-items">Google Ads &middot; Meta Ads &middot; TikTok Ads</span><span class="tool-sep">&mdash;</span>
+                    <span class="tool-cat">Analytics</span><span class="tool-items">GA4 &middot; Google Tag Manager</span><span class="tool-sep">&mdash;</span>
+                    <span class="tool-cat">SEO</span><span class="tool-items">SEO &middot; SEMrush</span><span class="tool-sep">&mdash;</span>
+                    <span class="tool-cat">Content</span><span class="tool-items">Canva &middot; CapCut &middot; Figma &middot; ChatGPT</span><span class="tool-sep">&mdash;</span>
+                    <span class="tool-cat">Automation</span><span class="tool-items">Zapier</span><span class="tool-sep">&mdash;</span>
+                    <span class="tool-cat">Website</span><span class="tool-items">Shopify &middot; WordPress</span><span class="tool-sep">&mdash;</span>
+                </div>
+                <div class="marquee-group" aria-hidden="true">
+                    <span class="tool-cat">Paid Media</span><span class="tool-items">Google Ads &middot; Meta Ads &middot; TikTok Ads</span><span class="tool-sep">&mdash;</span>
+                    <span class="tool-cat">Analytics</span><span class="tool-items">GA4 &middot; Google Tag Manager</span><span class="tool-sep">&mdash;</span>
+                    <span class="tool-cat">SEO</span><span class="tool-items">SEO &middot; SEMrush</span><span class="tool-sep">&mdash;</span>
+                    <span class="tool-cat">Content</span><span class="tool-items">Canva &middot; CapCut &middot; Figma &middot; ChatGPT</span><span class="tool-sep">&mdash;</span>
+                    <span class="tool-cat">Automation</span><span class="tool-items">Zapier</span><span class="tool-sep">&mdash;</span>
+                    <span class="tool-cat">Website</span><span class="tool-items">Shopify &middot; WordPress</span><span class="tool-sep">&mdash;</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section id="about">
+        <div class="container about-inner">
+            <p class="eyebrow reveal" style="text-align:center;">About</p>
+            <h2 class="reveal">More than content.</h2>
+            <p class="reveal">I'm Fenohasina, a digital marketer and emerging content creator exploring the intersection between visual storytelling and digital strategy.</p>
+            <p class="reveal">I'm currently building my creative portfolio through personal projects while developing my experience in social media, paid media, SEO and digital marketing.</p>
+        </div>
+    </section>
+
+    <!-- CONTENT -->
+    <section id="content">
+        <div class="container">
+            <div class="section-head">
+                <p class="eyebrow reveal">Content</p>
+                <h2 class="reveal">Visual <span class="script">Stories</span></h2>
+                <p class="section-lead reveal">Personal creative projects exploring beauty, lifestyle and everyday storytelling through video &mdash; the starting point of my content creation journey.</p>
+            </div>
+
+            <div class="work-grid">
+                <article class="work-card reveal">
+                    <div class="media-frame">
+                        <video muted loop playsinline preload="none" controls
+                               onerror="this.parentElement.querySelector('.media-placeholder').style.display='flex'; this.remove();">
+                            <source src="assets/videos/restaurant-vlog.mp4" type="video/mp4">
+                        </video>
+                        <div class="media-placeholder">
+                            <span class="ph-tag">Restaurant Vlog</span>
+                            <span class="ph-note">Video coming soon</span>
+                        </div>
+                    </div>
+                    <div class="work-meta">
+                        <span class="work-tag">Personal Creative Project</span>
+                        <h3>Restaurant Vlog</h3>
+                        <p>A day-in-the-life style vlog capturing a restaurant visit through natural, unscripted storytelling.</p>
+                    </div>
+                </article>
+
+                <article class="work-card reveal">
+                    <div class="media-frame">
+                        <video muted loop playsinline preload="none" controls
+                               onerror="this.parentElement.querySelector('.media-placeholder').style.display='flex'; this.remove();">
+                            <source src="assets/videos/pin-curl-tutorial.mp4" type="video/mp4">
+                        </video>
+                        <div class="media-placeholder">
+                            <span class="ph-tag">Pin Curl Tutorial</span>
+                            <span class="ph-note">Video coming soon</span>
+                        </div>
+                    </div>
+                    <div class="work-meta">
+                        <span class="work-tag">Personal Creative Project</span>
+                        <h3>Pin Curl Tutorial</h3>
+                        <p>A step-by-step tutorial styling a classic pin curl look, shared as haircare content.</p>
+                    </div>
+                </article>
+
+                <article class="work-card reveal">
+                    <div class="media-frame">
+                        <video muted loop playsinline preload="none" controls
+                               onerror="this.parentElement.querySelector('.media-placeholder').style.display='flex'; this.remove();">
+                            <source src="assets/videos/blackhead-mask.mp4" type="video/mp4">
+                        </video>
+                        <div class="media-placeholder">
+                            <span class="ph-tag">Blackhead Mask</span>
+                            <span class="ph-note">Video coming soon</span>
+                        </div>
+                    </div>
+                    <div class="work-meta">
+                        <span class="work-tag">Personal Creative Project</span>
+                        <h3>Blackhead Mask</h3>
+                        <p>A skincare routine moment featuring a purifying mask application.</p>
+                    </div>
+                </article>
+
+                <article class="work-card reveal">
+                    <div class="media-frame">
+                        <video muted loop playsinline preload="none" controls
+                               onerror="this.parentElement.querySelector('.media-placeholder').style.display='flex'; this.remove();">
+                            <source src="assets/videos/outfit-of-the-day.mp4" type="video/mp4">
+                        </video>
+                        <div class="media-placeholder">
+                            <span class="ph-tag">Outfit of the Day</span>
+                            <span class="ph-note">Video coming soon</span>
+                        </div>
+                    </div>
+                    <div class="work-meta">
+                        <span class="work-tag">Personal Creative Project</span>
+                        <h3>Outfit of the Day</h3>
+                        <p>A styled outfit-of-the-day showcase highlighting fit, layering and details.</p>
+                    </div>
+                </article>
+
+                <article class="work-card reveal">
+                    <div class="media-frame">
+                        <video muted loop playsinline preload="none" controls
+                               onerror="this.parentElement.querySelector('.media-placeholder').style.display='flex'; this.remove();">
+                            <source src="assets/videos/haircare-routine.mp4" type="video/mp4">
+                        </video>
+                        <div class="media-placeholder">
+                            <span class="ph-tag">Haircare Routine</span>
+                            <span class="ph-note">Video coming soon</span>
+                        </div>
+                    </div>
+                    <div class="work-meta">
+                        <span class="work-tag">Personal Creative Project</span>
+                        <h3>Haircare Routine</h3>
+                        <p>A personal haircare routine shared as everyday lifestyle content.</p>
+                    </div>
+                </article>
+
+                <article class="work-card reveal">
+                    <div class="media-frame">
+                        <video muted loop playsinline preload="none" controls
+                               onerror="this.parentElement.querySelector('.media-placeholder').style.display='flex'; this.remove();">
+                            <source src="assets/videos/mini-ootd-bag-watch.mp4" type="video/mp4">
+                        </video>
+                        <div class="media-placeholder">
+                            <span class="ph-tag">Mini OOTD</span>
+                            <span class="ph-note">Video coming soon</span>
+                        </div>
+                    </div>
+                    <div class="work-meta">
+                        <span class="work-tag">Personal Creative Project</span>
+                        <h3>Mini OOTD &mdash; Bag &amp; Watch</h3>
+                        <p>A short-form styling moment focused on accessories &mdash; bag and watch.</p>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- SOCIAL MEDIA -->
+    <section id="social-media">
+        <div class="container">
+            <div class="section-head">
+                <p class="eyebrow reveal">Social Media</p>
+                <h2 class="reveal">Social Media</h2>
+                <p class="section-lead reveal" style="font-family:var(--font-serif); font-style:italic; font-size:1.15rem; color:var(--ink);">Content that gives brands a presence.</p>
+                <p class="section-lead reveal">I create social media content and visual concepts designed to communicate clearly, strengthen brand identity and keep audiences engaged.</p>
+            </div>
+
+            <p class="eyebrow reveal" style="margin-bottom:1.6rem;">Selected Social Media &amp; Visual Content</p>
+
+            <div class="work-grid">
+                <article class="work-card reveal">
+                    <div class="media-frame">
+                        <img src="assets/img/social-instagram-grid.jpg" alt="Instagram content concept"
+                             onerror="this.parentElement.querySelector('.media-placeholder').style.display='flex'; this.remove();">
+                        <div class="media-placeholder">
+                            <span class="ph-tag">Instagram Content</span>
+                            <span class="ph-note">Visual coming soon</span>
+                        </div>
+                    </div>
+                    <div class="work-meta">
+                        <span class="work-tag">Instagram Content</span>
+                        <h3>Instagram Grid Concept</h3>
+                        <p>A cohesive grid concept exploring color, layout and tone for a consistent brand presence.</p>
+                    </div>
+                </article>
+
+                <article class="work-card reveal">
+                    <div class="media-frame">
+                        <img src="assets/img/social-promo-visual.jpg" alt="Promotional content concept"
+                             onerror="this.parentElement.querySelector('.media-placeholder').style.display='flex'; this.remove();">
+                        <div class="media-placeholder">
+                            <span class="ph-tag">Promotional Content</span>
+                            <span class="ph-note">Visual coming soon</span>
+                        </div>
+                    </div>
+                    <div class="work-meta">
+                        <span class="work-tag">Promotional Content</span>
+                        <h3>Promotional Post Design</h3>
+                        <p>A promotional visual concept designed to highlight an offer clearly and elegantly.</p>
+                    </div>
+                </article>
+
+                <article class="work-card reveal">
+                    <div class="media-frame">
+                        <img src="assets/img/social-educational-carousel.jpg" alt="Educational carousel concept"
+                             onerror="this.parentElement.querySelector('.media-placeholder').style.display='flex'; this.remove();">
+                        <div class="media-placeholder">
+                            <span class="ph-tag">Educational Content</span>
+                            <span class="ph-note">Visual coming soon</span>
+                        </div>
+                    </div>
+                    <div class="work-meta">
+                        <span class="work-tag">Educational Content</span>
+                        <h3>Educational Carousel &mdash; Skincare Tips</h3>
+                        <p>A multi-slide carousel concept breaking down a skincare topic into clear, shareable steps.</p>
+                    </div>
+                </article>
+
+                <article class="work-card reveal">
+                    <div class="media-frame">
+                        <img src="assets/img/social-campaign-concept.jpg" alt="Campaign concept moodboard"
+                             onerror="this.parentElement.querySelector('.media-placeholder').style.display='flex'; this.remove();">
+                        <div class="media-placeholder">
+                            <span class="ph-tag">Campaign Concepts</span>
+                            <span class="ph-note">Visual coming soon</span>
+                        </div>
+                    </div>
+                    <div class="work-meta">
+                        <span class="work-tag">Campaign Concepts</span>
+                        <h3>Seasonal Campaign Moodboard</h3>
+                        <p>A concept moodboard exploring visual direction for a seasonal campaign idea.</p>
+                    </div>
+                </article>
+
+                <article class="work-card reveal">
+                    <div class="media-frame">
+                        <img src="assets/img/social-brand-communication.jpg" alt="Brand communication concept"
+                             onerror="this.parentElement.querySelector('.media-placeholder').style.display='flex'; this.remove();">
+                        <div class="media-placeholder">
+                            <span class="ph-tag">Brand Communication</span>
+                            <span class="ph-note">Visual coming soon</span>
+                        </div>
+                    </div>
+                    <div class="work-meta">
+                        <span class="work-tag">Brand Communication</span>
+                        <h3>Brand Voice &amp; Tone Concept</h3>
+                        <p>A visual exploration of how a brand's tone and personality can translate into content.</p>
+                    </div>
+                </article>
+
+                <article class="work-card reveal">
+                    <div class="media-frame">
+                        <img src="assets/img/social-story-template.jpg" alt="Social media story template"
+                             onerror="this.parentElement.querySelector('.media-placeholder').style.display='flex'; this.remove();">
+                        <div class="media-placeholder">
+                            <span class="ph-tag">Social Media Content</span>
+                            <span class="ph-note">Visual coming soon</span>
+                        </div>
+                    </div>
+                    <div class="work-meta">
+                        <span class="work-tag">Social Media Content</span>
+                        <h3>Story Template Concept</h3>
+                        <p>A reusable story template concept built for quick, on-brand daily posting.</p>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- DIGITAL MARKETING -->
+    <section id="digital-marketing">
+        <div class="container">
+            <div class="section-head dm-intro">
+                <p class="eyebrow reveal">Digital Marketing</p>
+                <h2 class="reveal">Digital Marketing</h2>
+                <p class="section-lead reveal">Acquisition, visibility and strategy &mdash; Google Ads, Meta Ads, TikTok Ads, SEO, GA4, GTM, content strategy and social media strategy, applied to real business challenges.</p>
+            </div>
+
+            <div class="capability-grid">
+                <div class="capability-card reveal">
+                    <div class="capability-num">01</div>
+                    <h3>Digital Acquisition</h3>
+                    <ul>
+                        <li>Google Ads (Search &amp; PMax)</li>
+                        <li>Meta Ads &amp; TikTok Ads</li>
+                        <li>Qualified lead generation</li>
+                    </ul>
+                </div>
+                <div class="capability-card reveal">
+                    <div class="capability-num">02</div>
+                    <h3>Web Visibility &amp; SEO</h3>
+                    <ul>
+                        <li>Technical &amp; on-page SEO</li>
+                        <li>Targeted content strategy</li>
+                        <li>Local &amp; global search visibility</li>
+                    </ul>
+                </div>
+                <div class="capability-card reveal">
+                    <div class="capability-num">03</div>
+                    <h3>Data &amp; Analytics</h3>
+                    <ul>
+                        <li>Google Analytics 4 (GA4)</li>
+                        <li>Google Tag Manager (GTM)</li>
+                        <li>Event &amp; behavior tracking</li>
+                    </ul>
+                </div>
+                <div class="capability-card reveal">
+                    <div class="capability-num">04</div>
+                    <h3>Conversion &amp; Automation</h3>
+                    <ul>
+                        <li>High-conversion landing pages</li>
+                        <li>User journey optimization</li>
+                        <li>Forms &amp; CRM / email connectors</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="pull-quote reveal">
+                <h3>Not just attracting. Understanding what happens after the click.</h3>
+                <p>My approach combines SEO, paid advertising, UX and analytics to master the full value chain: before, during and after acquisition.</p>
+            </div>
+
+            <p class="eyebrow reveal" style="margin-bottom:1.6rem;">Case Studies &mdash; Sectors, Not Client Names</p>
+
+            <!-- CASE 01 -->
+            <div class="case-card reveal">
+                <div class="case-header">
+                    <div>
+                        <h3>Case 01 &mdash; Business Services (B2B)</h3>
+                        <p>B2B quote generation &amp; paid media ROI optimization</p>
+                    </div>
+                    <span class="case-tag">Lead Generation</span>
+                </div>
+
+                <p class="case-paragraph">
+                    This project illustrates a complete overhaul of paid acquisition for a B2B services company. By restructuring the ad campaign architecture and automating measurement of every interaction, the setup eliminated wasted budget while creating a continuous, predictable flow of qualified sales opportunities.
+                </p>
+
+                <div class="case-block">
+                    <div class="case-block-title">The Challenge</div>
+                    <p>The company was spending up to &euro;6.39 to bring a single visitor to its site through Google search, making new customer acquisition very costly.</p>
+                </div>
+
+                <div class="case-block">
+                    <div class="case-block-title">The Approach</div>
+                    <p>Complete restructuring of the ad strategy (shifting to smart automated campaigns) and fixing the measurement tools to track every quote request.</p>
+                </div>
+
+                <div class="case-block-title">Impact Snapshot</div>
+                <div class="matrix-grid-3">
+                    <div class="matrix-card">
+                        <div class="matrix-metric-label">Cost per Visitor (CPC)</div>
+                        <div class="matrix-values">
+                            <span class="val-before">&euro;6.39</span>
+                            <span class="val-arrow">&rarr;</span>
+                            <span class="val-after">&euro;0.03</span>
+                        </div>
+                        <div class="matrix-badge">Cost cut by 200x</div>
+                    </div>
+
+                    <div class="matrix-card">
+                        <div class="matrix-metric-label">Qualified Visitor Volume</div>
+                        <div class="matrix-values">
+                            <span class="val-before">25 / month</span>
+                            <span class="val-arrow">&rarr;</span>
+                            <span class="val-after">552</span>
+                        </div>
+                        <div class="matrix-badge">Visibility &times;20 in 8 days</div>
+                    </div>
+
+                    <div class="matrix-card">
+                        <div class="matrix-metric-label">Quote Opportunities Created</div>
+                        <div class="matrix-values">
+                            <span class="val-before">0 / Not measured</span>
+                            <span class="val-arrow">&rarr;</span>
+                            <span class="val-after">68</span>
+                        </div>
+                        <div class="matrix-badge">Continuous flow within 1 week</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CASE 02 -->
+            <div class="case-card reveal">
+                <div class="case-header">
+                    <div>
+                        <h3>Case 02 &mdash; Vehicle Rental</h3>
+                        <p>Direct bookings &amp; customer capture without intermediaries</p>
+                    </div>
+                    <span class="case-tag">SEO &amp; Local Ads</span>
+                </div>
+
+                <p class="case-paragraph">
+                    Focused on the tourism rental sector, this case demonstrates the power of a targeted search strategy from the moment travel intent begins. By capturing prospects before departure and optimizing the online booking experience, the business reduced its reliance on the commissions imposed by third-party platforms.
+                </p>
+
+                <div class="case-block">
+                    <div class="case-block-title">The Challenge</div>
+                    <p>Filling the vehicle booking calendar against strong local competition, without relying exclusively on third-party platforms that charge high commissions.</p>
+                </div>
+
+                <div class="case-block">
+                    <div class="case-block-title">The Approach</div>
+                    <p>Positioning the website on strategic Google searches made by travelers (at home and on-site) before and during their stay, combined with targeted local ads.</p>
+                </div>
+
+                <div class="case-block-title">Impact Snapshot</div>
+                <div class="matrix-grid-3">
+                    <div class="matrix-card">
+                        <div class="matrix-metric-label">Google Click-Through Rate</div>
+                        <div class="matrix-values">
+                            <span class="val-after">19.2%</span>
+                        </div>
+                        <div class="visual-meter-container">
+                            <div class="meter-bg"><div class="meter-fill" style="width: 85%;"></div></div>
+                            <span style="font-size:0.75rem; color:var(--gray);">Industry average: ~3%</span>
+                        </div>
+                    </div>
+
+                    <div class="matrix-card">
+                        <div class="matrix-metric-label">Target Market Penetration</div>
+                        <div class="matrix-values">
+                            <span class="val-after" style="font-size:1.2rem;">France + Local</span>
+                        </div>
+                        <div class="matrix-badge">Captured before departure</div>
+                    </div>
+
+                    <div class="matrix-card">
+                        <div class="matrix-metric-label">Direct Sales</div>
+                        <div class="matrix-values">
+                            <span class="val-after" style="font-size:1.2rem;">+100% Direct</span>
+                        </div>
+                        <div class="matrix-badge">Independence from OTAs</div>
+                    </div>
+                </div>
+
+                <div class="takeaway-box">
+                    <div class="case-block-title">What This Means For Your Business</div>
+                    <ul>
+                        <li><strong>Immediate visibility:</strong> your business is placed in front of direct competitors, at the exact moment future customers are searching for your services.</li>
+                        <li><strong>Strict budget control:</strong> every euro invested is tracked, so you know exactly how much you spend and how many customers it brings you.</li>
+                        <li><strong>Automation:</strong> quote requests and phone calls are routed directly to your sales team without delay.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- CASE 03 -->
+            <div class="case-card reveal">
+                <div class="case-header">
+                    <div>
+                        <h3>Case 03 &mdash; Education &amp; Training Institution</h3>
+                        <p>Analytics overhaul &amp; data-driven student recruitment</p>
+                    </div>
+                    <span class="case-tag">Analytics &amp; Data SEO</span>
+                </div>
+
+                <p class="case-paragraph">
+                    This case illustrates the highly analytical side of digital marketing. By deploying custom tracking (GA4 / GTM) and filtering out internal noise, leadership was able to manage student recruitment with real metrics on applicants' geographic origin and interest in each program.
+                </p>
+
+                <div class="case-block">
+                    <div class="case-block-title">The Challenge</div>
+                    <p>The institution had no clear view of where its applicants came from (cities, countries) or their real interest in its programs, and its data was distorted by daily visits from its own staff.</p>
+                </div>
+
+                <div class="case-block">
+                    <div class="case-block-title">The Approach</div>
+                    <p>Built a complete measurement and filtering system (GA4 / GTM) to isolate internal traffic and give leadership a reliable dashboard focused on application generation (SEO + behavior).</p>
+                </div>
+
+                <div class="matrix-grid-2">
+                    <div class="chart-box">
+                        <div class="case-block-title">Applicant Origin &amp; Data Filtering</div>
+                        <div class="chart-container-wrapper">
+                            <canvas id="geoChart"></canvas>
+                        </div>
+                    </div>
+
+                    <div class="chart-box">
+                        <div class="case-block-title">Average Engagement by Step (Minutes)</div>
+                        <div class="chart-container-wrapper">
+                            <canvas id="engagementChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="takeaway-box">
+                    <div class="case-block-title">Key Takeaways</div>
+                    <ul>
+                        <li><strong>Decisions based on real data:</strong> recommended exclusion of the 64 internal staff visits to count only genuine applicants.</li>
+                        <li><strong>High-performing SEO acquisition:</strong> 160 new users (60%+ of traffic) from Google, organically.</li>
+                        <li><strong>Profitable application funnel:</strong> 2 min 16s of attention on program pages and 1 min 43s on the international application file.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MY APPROACH -->
+    <section id="approach">
+        <div class="container approach-inner">
+            <p class="eyebrow reveal">My Approach</p>
+            <h2 class="reveal">Creative mind. <span class="script">Marketing perspective.</span></h2>
+            <p class="reveal">My background in digital marketing allows me to approach content from both sides: creative storytelling and marketing strategy.</p>
+            <p class="reveal">I don't just think about how content looks. I think about why people stop, watch, remember and act.</p>
+        </div>
+    </section>
+
+    <!-- CREATIVE FOCUS -->
+    <section id="creative-focus">
+        <div class="container">
+            <div class="section-head" style="margin-bottom:2rem;">
+                <p class="eyebrow reveal">Creative Focus</p>
+                <h2 class="reveal">Creative Focus</h2>
+            </div>
+            <div class="focus-list reveal">
+                <span class="focus-pill">Beauty</span>
+                <span class="focus-pill">Skincare</span>
+                <span class="focus-pill">Haircare</span>
+                <span class="focus-pill">Fashion</span>
+                <span class="focus-pill">Jewelry</span>
+                <span class="focus-pill">Perfume</span>
+                <span class="focus-pill">Luxury Lifestyle</span>
+                <span class="focus-pill">Travel</span>
+                <span class="focus-pill">Hotels</span>
+                <span class="focus-pill">Restaurants</span>
+                <span class="focus-pill">Tech &amp; Gadgets</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="contact-wrapper">
+                <div class="contact-info">
+                    <p class="eyebrow reveal">Contact</p>
+                    <h2 class="reveal">Let's create something meaningful.</h2>
+                    <p class="reveal">Open to creative collaborations, social media projects and digital marketing opportunities.</p>
+                    <a href="mailto:ratsitoarivonjyf@gmail.com" class="btn btn-primary reveal">Let's Connect</a>
+
+                    <div class="contact-details reveal">
+                        <a href="mailto:ratsitoarivonjyf@gmail.com" class="contact-item link-animated">
+                            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M3 6h18v12H3V6Z"/><path d="m3 6 9 7 9-7"/></svg>
+                            ratsitoarivonjyf@gmail.com
+                        </a>
+                        <a href="https://www.linkedin.com/in/fenohasina-a-ratsitoarivonjy-andrian" target="_blank" rel="noopener" class="contact-item link-animated">
+                            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="1.5"/><path d="M7.5 10.5v6M7.5 7.75v.01M12 16.5v-4c0-1.1.9-2 2-2s2 .9 2 2v4"/></svg>
+                            LinkedIn
+                        </a>
+                        <a href="https://linktr.ee/fenohasina_andrian" target="_blank" rel="noopener" class="contact-item link-animated">
+                            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M9 15 15 9M10.5 6.5 12 5a3.5 3.5 0 1 1 5 5l-1.5 1.5M13.5 17.5 12 19a3.5 3.5 0 1 1-5-5l1.5-1.5"/></svg>
+                            More Links
+                        </a>
+                        <span class="contact-item">
+                            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M12 21s7-6.5 7-11.5A7 7 0 0 0 5 9.5C5 14.5 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.2"/></svg>
+                            Antananarivo, Madagascar
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Form connected to FormSubmit -->
+                <div class="contact-form reveal">
+                    <form action="https://formsubmit.co/ratsitoarivonjyf@gmail.com" method="POST">
+                        <input type="hidden" name="_subject" value="New message from your portfolio!">
+                        <input type="hidden" name="_template" value="table">
+                        <input type="hidden" name="_captcha" value="false">
+
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" name="name" placeholder="e.g. Jane Doe" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" placeholder="name@example.com" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="subject">Project Subject</label>
+                            <input type="text" id="subject" name="subject" placeholder="Content collaboration, social media, marketing..." required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">Message / Project Details</label>
+                            <textarea id="message" name="message" rows="5" placeholder="Briefly describe what you have in mind..." required></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary submit-btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-links">
+                <a href="https://www.linkedin.com/in/fenohasina-a-ratsitoarivonjy-andrian" target="_blank" rel="noopener" class="link-animated">LinkedIn</a>
+                <a href="https://linktr.ee/fenohasina_andrian" target="_blank" rel="noopener" class="link-animated">Linktree</a>
+                <a href="mailto:ratsitoarivonjyf@gmail.com" class="link-animated">Email</a>
+            </div>
+            <p>&copy; 2026 Fenohasina Ratsitoarivonjy. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+            /* ---- Mobile nav toggle ---- */
+            var navToggle = document.getElementById('navToggle');
+            var navLinks = document.getElementById('navLinks');
+            if (navToggle && navLinks) {
+                navToggle.addEventListener('click', function () {
+                    var isOpen = navLinks.classList.toggle('is-open');
+                    navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+                });
+                navLinks.querySelectorAll('a').forEach(function (a) {
+                    a.addEventListener('click', function () {
+                        navLinks.classList.remove('is-open');
+                        navToggle.setAttribute('aria-expanded', 'false');
+                    });
+                });
+            }
+
+            /* ---- Scroll reveal ---- */
+            if ('IntersectionObserver' in window) {
+                var revealObserver = new IntersectionObserver(function (entries, obs) {
+                    entries.forEach(function (entry) {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('is-visible');
+                            obs.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+                document.querySelectorAll('.reveal').forEach(function (el) {
+                    revealObserver.observe(el);
+                });
+            } else {
+                document.querySelectorAll('.reveal').forEach(function (el) {
+                    el.classList.add('is-visible');
+                });
+            }
+
+            /* ---- Media frames: let real photos/videos define their own ratio ---- */
+            document.querySelectorAll('.media-frame').forEach(function (frame) {
+                var media = frame.querySelector('video, img');
+                if (!media) return;
+                var makeNatural = function () { frame.classList.add('natural'); };
+                if (media.tagName === 'VIDEO') {
+                    media.addEventListener('loadedmetadata', makeNatural);
+                } else {
+                    if (media.complete && media.naturalWidth) makeNatural();
+                    media.addEventListener('load', makeNatural);
+                }
+            });
+
+            /* ---- Subtle 3D tilt on the hero photo (desktop pointer devices only) ---- */
+            var tiltWrap = document.getElementById('photoTilt');
+            var photoCard = document.getElementById('photoCard');
+            var canTilt = tiltWrap && photoCard && !prefersReduced &&
+                window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+
+            if (canTilt) {
+                var maxDeg = 6;
+                tiltWrap.addEventListener('mousemove', function (e) {
+                    var rect = tiltWrap.getBoundingClientRect();
+                    var x = (e.clientX - rect.left) / rect.width - 0.5;
+                    var y = (e.clientY - rect.top) / rect.height - 0.5;
+                    photoCard.style.transform =
+                        'rotateX(' + (-y * maxDeg).toFixed(2) + 'deg) rotateY(' + (x * maxDeg).toFixed(2) + 'deg)';
+                });
+                tiltWrap.addEventListener('mouseleave', function () {
+                    photoCard.style.transform = 'rotateX(0deg) rotateY(0deg)';
+                });
+            }
+
+            /* ---- Chart.js: Digital Marketing case study charts ---- */
+            var geoEl = document.getElementById('geoChart');
+            if (geoEl && window.Chart) {
+                Chart.defaults.color = '#6F6F6F';
+                Chart.defaults.font.family = "'Inter', sans-serif";
+
+                new Chart(geoEl.getContext('2d'), {
+                    type: 'bar',
+                    data: {
+                        labels: ['Paris', 'Google SEO', 'Internal Traffic (Excluded)', 'Cotonou', 'Dakar', 'Grenoble', 'Marseille'],
+                        datasets: [{
+                            label: 'Visitors / Sessions',
+                            data: [61, 160, 64, 15, 12, 6, 5],
+                            backgroundColor: ['#C2A878', '#161616', '#E7E3DE', '#C2A878', '#C2A878', '#C2A878', '#C2A878'],
+                            borderRadius: 3
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: { display: false },
+                            tooltip: {
+                                callbacks: {
+                                    label: function (context) { return context.raw + ' users'; }
+                                }
+                            }
+                        },
+                        scales: {
+                            x: { grid: { display: false } },
+                            y: { grid: { color: '#E7E3DE' } }
+                        }
+                    }
+                });
+
+                new Chart(document.getElementById('engagementChart').getContext('2d'), {
+                    type: 'bar',
+                    data: {
+                        labels: ['Program Pages', 'International Application', 'BTS & Bachelor', 'Home Page'],
+                        datasets: [{
+                            label: 'Average Engagement (Minutes)',
+                            data: [2.26, 1.71, 1.16, 1.03],
+                            backgroundColor: ['#C2A878', '#161616', '#8a6f47', '#6F6F6F'],
+                            borderRadius: 3
+                        }]
+                    },
+                    options: {
+                        indexAxis: 'y',
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: { display: false },
+                            tooltip: {
+                                callbacks: {
+                                    label: function (context) { return context.raw + ' min average'; }
+                                }
+                            }
+                        },
+                        scales: {
+                            x: {
+                                grid: { color: '#E7E3DE' },
+                                title: { display: true, text: 'Average duration (Minutes)', color: '#6F6F6F' }
+                            },
+                            y: { grid: { display: false } }
+                        }
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>
