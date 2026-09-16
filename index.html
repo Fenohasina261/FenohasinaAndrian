@@ -315,18 +315,64 @@
             50% { transform: translateY(-14px); }
         }
 
-        .photo-card-wrap {
-            perspective: 1200px;
-            position: relative;
-            z-index: 1;
-            width: min(360px, 82vw);
-        }
+        /* ---------- Premium Profile Photo ---------- */
 
-        .photo-card {
+.photo-card-wrap {
+    perspective: 1400px;
+    position: relative;
+    z-index: 1;
+    width: min(440px, 90vw);
+}
+
+.photo-card {
     position: relative;
     aspect-ratio: 4 / 5;
     transform-style: preserve-3d;
-    transition: transform 0.5s cubic-bezier(.2,.7,.2,1);
+    transition: transform 0.6s cubic-bezier(.2,.7,.2,1);
+    border: 1px solid var(--gold);
+    border-radius: 4px;
+    background: var(--white);
+    box-shadow:
+        0 0 60px rgba(194, 168, 120, 0.18),
+        0 30px 70px rgba(22, 22, 22, 0.13);
+    overflow: hidden;
+}
+
+.photo-card::after {
+    content: "";
+    position: absolute;
+    inset: 12px;
+    border: 1px solid rgba(255,255,255,0.45);
+    pointer-events: none;
+    z-index: 2;
+}
+
+.photo-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+    transition: transform 0.8s ease;
+}
+
+.photo-card:hover img {
+    transform: scale(1.025);
+}
+
+.hero-photo {
+    transform: translateY(10px);
+}
+
+@media (max-width: 760px) {
+    .photo-card-wrap {
+        width: min(360px, 88vw);
+    }
+
+    .hero-photo {
+        transform: none;
+    }
+}
 
     /* Suppression du cadre blanc */
     border: none;
@@ -467,25 +513,333 @@
             margin-bottom: 1rem;
         }
 
-        /* ---------- Work grids (Content / Social Media) ---------- */
-        .work-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-            align-items: start;
-        }
+        /* ---------- Aesthetic Portfolio Grid ---------- */
 
-        .work-card {
-            background: var(--white);
-            border: 1px solid var(--line);
-            transition: border-color 0.35s ease, transform 0.35s ease;
-        }
-        .work-card:hover {
-            border-color: var(--gold);
-        }
+.work-grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 1.5rem;
+    align-items: stretch;
+}
 
-        .media-frame {
+/* Each portfolio card */
+.work-card {
+    grid-column: span 4;
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: 2px;
+    overflow: hidden;
+    transition:
+        transform 0.45s cubic-bezier(.2,.7,.2,1),
+        border-color 0.35s ease,
+        box-shadow 0.45s ease;
+}
+
+.work-card:hover {
+    transform: translateY(-7px);
+    border-color: var(--gold);
+    box-shadow: 0 20px 45px rgba(20, 20, 20, 0.08);
+}
+
+/* First project slightly larger */
+.work-card:first-child {
+    grid-column: span 5;
+}
+
+/* Second project */
+.work-card:nth-child(2) {
+    grid-column: span 3;
+}
+
+/* Third project */
+.work-card:nth-child(3) {
+    grid-column: span 4;
+}
+
+/* Image area */
+.media-frame {
     position: relative;
+    aspect-ratio: 4 / 4.7;
+    background: var(--line);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Normal images */
+.media-frame img,
+.media-frame video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.7s cubic-bezier(.2,.7,.2,1);
+    background: var(--line);
+}
+
+.media-frame.natural {
+    aspect-ratio: auto;
+}
+
+.media-frame.natural img,
+.media-frame.natural video {
+    height: auto;
+}
+
+/* Elegant zoom */
+.work-card:hover .media-frame img,
+.work-card:hover .media-frame video {
+    transform: scale(1.025);
+}
+
+/* Text area */
+.work-meta {
+    padding: 1.35rem 1.45rem 1.6rem;
+    background: var(--white);
+}
+
+.work-tag {
+    display: inline-block;
+    font-size: 0.64rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    border: 1px solid rgba(194, 168, 120, 0.65);
+    padding: 0.3rem 0.65rem;
+    margin-bottom: 0.8rem;
+}
+
+.work-meta h3 {
+    font-size: 1.25rem;
+    line-height: 1.25;
+    margin-bottom: 0.55rem;
+}
+
+.work-meta p {
+    color: var(--gray);
+    font-size: 0.88rem;
+    line-height: 1.65;
+}
+
+/* ---------- Responsive Portfolio Grid ---------- */
+
+@media (max-width: 980px) {
+
+    .work-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .work-card,
+    .work-card:first-child,
+    .work-card:nth-child(2),
+    .work-card:nth-child(3) {
+        grid-column: span 1;
+    }
+
+}
+
+@media (max-width: 760px) {
+
+    .work-grid {
+        grid-template-columns: 1fr;
+        gap: 1.4rem;
+    }
+
+    .work-card,
+    .work-card:first-child,
+    .work-card:nth-child(2),
+    .work-card:nth-child(3) {
+        grid-column: span 1;
+    }
+
+    .media-frame {
+        aspect-ratio: 4 / 5;
+    }
+
+}
+    /* =========================================================
+   WEB DESIGN — COMPUTER MOCKUP
+   ========================================================= */
+
+.web-design-card {
+    background: var(--white);
+}
+
+/* Computer body */
+.computer-frame {
+    position: relative;
+    width: 100%;
+    padding: 1.2rem 1.2rem 0;
+    background: linear-gradient(
+        145deg,
+        #f8f6f1,
+        #e9e5dd
+    );
+    border-bottom: 1px solid var(--line);
+}
+
+/* Top browser/device bar */
+.computer-topbar {
+    height: 28px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 0 10px;
+    background: #1b1b1b;
+    border-radius: 8px 8px 0 0;
+}
+
+.computer-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #777;
+}
+
+/* Screen */
+.computer-screen {
+    position: relative;
+    height: 360px;
+    background: #111;
+    overflow: hidden;
+    border-left: 5px solid #1b1b1b;
+    border-right: 5px solid #1b1b1b;
+    border-bottom: 5px solid #1b1b1b;
+    box-shadow:
+        inset 0 0 0 1px rgba(255,255,255,0.08),
+        0 15px 35px rgba(0,0,0,0.12);
+}
+
+/* Scrollable website */
+.website-scroll {
+    position: absolute;
+    inset: 0;
+    overflow-y: auto;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    scrollbar-width: thin;
+    scrollbar-color: var(--gold) transparent;
+}
+
+/* Chrome / Edge scrollbar */
+.website-scroll::-webkit-scrollbar {
+    width: 5px;
+}
+
+.website-scroll::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.website-scroll::-webkit-scrollbar-thumb {
+    background: var(--gold);
+    border-radius: 10px;
+}
+
+/* Website image */
+.website-scroll img {
+    display: block;
+    width: 100%;
+    height: auto;
+    min-height: 480px;
+    object-fit: cover;
+    object-position: top;
+}
+
+/* Scroll indicator */
+.scroll-indicator {
+    position: absolute;
+    right: 12px;
+    bottom: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3px;
+    padding: 7px 8px;
+    background: rgba(20,20,20,0.72);
+    color: white;
+    font-size: 0.55rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    border: 1px solid rgba(255,255,255,0.2);
+    pointer-events: none;
+    opacity: 0.9;
+}
+
+.scroll-arrow {
+    font-size: 0.9rem;
+    animation: scrollHint 1.6s ease-in-out infinite;
+}
+
+@keyframes scrollHint {
+
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(4px);
+    }
+
+}
+
+/* Computer bottom */
+.computer-base {
+    position: relative;
+    height: 55px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.computer-neck {
+    position: absolute;
+    bottom: 12px;
+    width: 38px;
+    height: 25px;
+    background: linear-gradient(
+        90deg,
+        #d7d2c9,
+        #f3f0e9,
+        #c9c3b8
+    );
+}
+
+.computer-stand {
+    position: absolute;
+    bottom: 2px;
+    width: 115px;
+    height: 8px;
+    border-radius: 50%;
+    background: #c5c0b6;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+}
+
+/* Hover effect */
+.web-design-card:hover .computer-frame {
+    box-shadow:
+        0 25px 55px rgba(20,20,20,0.12);
+}
+
+.web-design-card:hover .computer-screen {
+    box-shadow:
+        inset 0 0 0 1px rgba(194,168,120,0.35),
+        0 18px 40px rgba(0,0,0,0.16);
+}
+
+/* Mobile */
+@media (max-width: 760px) {
+
+    .computer-screen {
+        height: 330px;
+    }
+
+    .website-scroll img {
+        min-height: 430px;
+    }
+
+}
 
     /* On ne force plus un ratio qui coupe les visuels */
     aspect-ratio: auto;
@@ -1422,17 +1776,52 @@
                     </div>
                 </div>
 
-                <!-- 3. Web Design Mockup -->
-                <div class="work-card reveal">
-                    <div class="media-frame">
-                        <img src="assets/img/web-design-mockup.png" alt="Web Design Mockup" loading="lazy">
-                    </div>
-                    <div class="work-meta">
-                        <span class="work-tag">Web UI/UX</span>
-                        <h3>Landing Page Mockup</h3>
-                        <p>User interface layout designed for smooth navigation and conversion rate optimization.</p>
-                    </div>
-                </div>
+                <!-- 3. Web Design Computer Mockup -->
+<div class="work-card reveal web-design-card">
+
+    <div class="computer-frame">
+
+        <div class="computer-topbar">
+            <span class="computer-dot"></span>
+            <span class="computer-dot"></span>
+            <span class="computer-dot"></span>
+        </div>
+
+        <div class="computer-screen">
+
+            <div class="website-scroll">
+                <img
+                    src="assets/img/web-design-mockup.png"
+                    alt="Web Design Landing Page"
+                    loading="lazy">
+            </div>
+
+            <div class="scroll-indicator">
+                <span>Scroll</span>
+                <span class="scroll-arrow">↓</span>
+            </div>
+
+        </div>
+
+        <div class="computer-base">
+            <div class="computer-neck"></div>
+            <div class="computer-stand"></div>
+        </div>
+
+    </div>
+
+    <div class="work-meta">
+        <span class="work-tag">Web UI/UX</span>
+
+        <h3>Landing Page Mockup</h3>
+
+        <p>
+            User interface layout designed for smooth navigation
+            and conversion rate optimization.
+        </p>
+    </div>
+
+</div>
             </div>
         </div>
     </section>
