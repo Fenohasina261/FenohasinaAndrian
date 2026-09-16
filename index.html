@@ -656,6 +656,136 @@
             text-transform: uppercase;
             white-space: nowrap;
         }
+        /* ---------- Digital Marketing Case Studies ---------- */
+
+.case-description {
+    color: var(--gray);
+    line-height: 1.75;
+    max-width: 850px;
+    margin-bottom: 1.8rem;
+}
+
+.case-section-title {
+    font-family: var(--font-sans);
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--gold);
+    margin: 1.8rem 0 0.7rem;
+}
+
+.case-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin: 2rem 0 2.5rem;
+}
+
+.case-stat {
+    border: 1px solid var(--line);
+    padding: 1.4rem;
+    background: var(--cream);
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.case-stat:hover {
+    transform: translateY(-3px);
+    border-color: var(--gold);
+}
+
+.case-stat-label {
+    display: block;
+    color: var(--gray);
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    margin-bottom: 0.6rem;
+}
+
+.case-stat-value {
+    display: block;
+    font-family: var(--font-display);
+    font-size: 1.8rem;
+    color: var(--ink);
+    line-height: 1.1;
+}
+
+.case-stat-change {
+    display: block;
+    color: var(--gold);
+    font-size: 0.8rem;
+    margin-top: 0.5rem;
+    font-weight: 600;
+}
+
+.case-charts {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.chart-box {
+    border: 1px solid var(--line);
+    padding: 1.5rem;
+    background: var(--white);
+    min-height: 280px;
+}
+
+.chart-box.full {
+    grid-column: 1 / -1;
+}
+
+.chart-title {
+    font-family: var(--font-sans);
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.chart-note {
+    color: var(--gray);
+    font-size: 0.75rem;
+    margin-top: 0.8rem;
+    line-height: 1.5;
+}
+
+.chart-container {
+    position: relative;
+    height: 220px;
+}
+
+.case-approach {
+    border-left: 2px solid var(--gold);
+    padding-left: 1.2rem;
+    margin: 1.5rem 0 2rem;
+}
+
+.case-approach p {
+    color: var(--gray);
+    line-height: 1.7;
+    margin: 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .case-card {
+        padding: 1.6rem;
+    }
+
+    .case-stats {
+        grid-template-columns: 1fr;
+    }
+
+    .case-charts {
+        grid-template-columns: 1fr;
+    }
+
+    .chart-box.full {
+        grid-column: auto;
+    }
+}
 
         /* ---------- Contact ---------- */
         .contact {
@@ -2754,6 +2884,313 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 </script>
+<script>
 
+/* =========================================================
+   DIGITAL MARKETING — CASE STUDIES CHARTS
+========================================================= */
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    /* ---------- CASE 01 : B2B ---------- */
+
+    new Chart(
+        document.getElementById("case01CpcChart"),
+        {
+            type: "bar",
+            data: {
+                labels: ["Avant", "Après"],
+                datasets: [{
+                    label: "CPC (€)",
+                    data: [6.39, 0.03],
+                    backgroundColor: ["#C2A878", "#161616"],
+                    borderWidth: 0
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        }
+    );
+
+
+    new Chart(
+        document.getElementById("case01VisitorsChart"),
+        {
+            type: "bar",
+            data: {
+                labels: ["Avant", "Après"],
+                datasets: [{
+                    label: "Visiteurs qualifiés",
+                    data: [25, 552],
+                    backgroundColor: ["#C2A878", "#161616"],
+                    borderWidth: 0
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        }
+    );
+
+
+    new Chart(
+        document.getElementById("case01QuotesChart"),
+        {
+            type: "bar",
+            data: {
+                labels: ["Avant", "Après"],
+                datasets: [{
+                    label: "Opportunités de devis",
+                    data: [0, 68],
+                    backgroundColor: ["#C2A878", "#161616"],
+                    borderWidth: 0
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        }
+    );
+
+
+    /* ---------- CASE 02 : LOCATION ---------- */
+
+    new Chart(
+        document.getElementById("case02CtrChart"),
+        {
+            type: "bar",
+            data: {
+                labels: ["CTR Google"],
+                datasets: [{
+                    label: "CTR (%)",
+                    data: [19.2],
+                    backgroundColor: ["#161616"],
+                    borderWidth: 0
+                }]
+            },
+            options: {
+                indexAxis: "y",
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                },
+                scales: {
+                    x: {
+                        beginAtZero: true,
+                        max: 100,
+                        ticks: {
+                            callback: function(value) {
+                                return value + "%";
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    );
+
+
+    new Chart(
+        document.getElementById("case02DirectChart"),
+        {
+            type: "bar",
+            data: {
+                labels: ["Acquisition directe"],
+                datasets: [{
+                    label: "Progression (%)",
+                    data: [100],
+                    backgroundColor: ["#C2A878"],
+                    borderWidth: 0
+                }]
+            },
+            options: {
+                indexAxis: "y",
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                },
+                scales: {
+                    x: {
+                        beginAtZero: true,
+                        max: 100,
+                        ticks: {
+                            callback: function(value) {
+                                return "+" + value + "%";
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    );
+
+
+    /* ---------- CASE 03 : EDUCATION ---------- */
+
+    new Chart(
+        document.getElementById("case03GoogleChart"),
+        {
+            type: "bar",
+            data: {
+                labels: ["Google"],
+                datasets: [{
+                    label: "Nouveaux utilisateurs",
+                    data: [160],
+                    backgroundColor: ["#161616"],
+                    borderWidth: 0
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        }
+    );
+
+
+    new Chart(
+        document.getElementById("case03InternalChart"),
+        {
+            type: "bar",
+            data: {
+                labels: ["Visites internes"],
+                datasets: [{
+                    label: "Visites",
+                    data: [64],
+                    backgroundColor: ["#C2A878"],
+                    borderWidth: 0
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        }
+    );
+
+
+    new Chart(
+        document.getElementById("case03EngagementChart"),
+        {
+            type: "bar",
+            data: {
+                labels: [
+                    "Formations",
+                    "Dossier international"
+                ],
+                datasets: [{
+                    label: "Temps d'engagement (secondes)",
+                    data: [136, 103],
+                    backgroundColor: ["#161616", "#C2A878"],
+                    borderWidth: 0
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: false
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+
+                                const seconds = context.raw;
+                                const minutes = Math.floor(seconds / 60);
+                                const remainingSeconds = seconds % 60;
+
+                                return (
+                                    minutes +
+                                    " min " +
+                                    remainingSeconds +
+                                    " s"
+                                );
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        ticks: {
+                            callback: function(value) {
+
+                                const minutes = Math.floor(value / 60);
+                                const seconds = value % 60;
+
+                                return minutes + ":" +
+                                    String(seconds).padStart(2, "0");
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    );
+
+});
+
+</script>
 </body>
 </html>
