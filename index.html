@@ -23,6 +23,18 @@
             --font-script: 'Allura', cursive;
             --font-sans: 'Inter', sans-serif;
         }
+        [data-theme="dark"] {
+    --bg-color: #121212; /* Couleur de fond Dark */
+    --text-color: #f1f1f1; /* Couleur de texte Dark */
+    --card-bg: #1e1e1e;
+    --gold: #d4bc8e;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
 
         * {
             box-sizing: border-box;
@@ -1600,6 +1612,13 @@
                 <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
                     <span></span><span></span><span></span>
                 </button>
+                <!-- Bouton Dark/Light Mode -->
+<button id="themeToggleBtn" aria-label="Changer de thème" style="background: none; border: 1px solid var(--gold); border-radius: 50%; width: 40px; height: 40px; cursor: pointer; display: flex; align-items: center; justify-content: center; color: var(--text-color); transition: transform 0.2s;">
+    <svg id="themeIcon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <!-- Icône Lune par défaut -->
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+    </svg>
+</button>
                 <ul class="nav-links" id="navLinks">
                     <li><a href="#about">About</a></li>
 
@@ -3469,6 +3488,41 @@ document.addEventListener("DOMContentLoaded", function () {
 
 });
 
+</script>
+        <script>
+    const themeToggleBtn = document.getElementById('themeToggleBtn');
+    const themeIcon = document.getElementById('themeIcon');
+    const htmlElement = document.documentElement;
+
+    // Vérifier si un thème est déjà sauvegardé dans le navigateur
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    if (savedTheme === 'dark') {
+        htmlElement.setAttribute('data-theme', 'dark');
+        updateIcon('dark');
+    }
+
+    themeToggleBtn.addEventListener('click', () => {
+        let currentTheme = htmlElement.getAttribute('data-theme');
+        if (currentTheme === 'dark') {
+            htmlElement.removeAttribute('data-theme');
+            localStorage.setItem('theme', 'light');
+            updateIcon('light');
+        } else {
+            htmlElement.setAttribute('data-theme', 'dark');
+            localStorage.setItem('theme', 'dark');
+            updateIcon('dark');
+        }
+    });
+
+    function updateIcon(theme) {
+        if (theme === 'dark') {
+            // Icône Soleil pour basculer vers le mode clair
+            themeIcon.innerHTML = '<circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>';
+        } else {
+            // Icône Lune pour basculer vers le mode sombre
+            themeIcon.innerHTML = '<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>';
+        }
+    }
 </script>
 </body>
 </html>
