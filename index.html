@@ -323,25 +323,32 @@
         }
 
         .photo-card {
-            position: relative;
-            aspect-ratio: 4 / 5;
-            transform-style: preserve-3d;
-            transition: transform 0.5s cubic-bezier(.2,.7,.2,1);
-            border: 1px solid var(--gold);
-            border-radius: 3px;
-            background: var(--white);
-            box-shadow:
-                0 0 45px rgba(194, 168, 120, 0.22),
-                0 22px 45px rgba(22, 22, 22, 0.10);
-            overflow: hidden;
-        }
+    position: relative;
+    aspect-ratio: 4 / 5;
+    transform-style: preserve-3d;
+    transition: transform 0.5s cubic-bezier(.2,.7,.2,1);
+
+    /* Suppression du cadre blanc */
+    border: none;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+
+    overflow: visible;
+}
 
         .photo-card img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-        }
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center bottom;
+    display: block;
+
+    /* Permet à la photo de se fondre dans le site */
+    mix-blend-mode: multiply;
+
+    filter: contrast(1.02);
+}
 
         .photo-placeholder {
             display: none;
@@ -478,34 +485,53 @@
         }
 
         .media-frame {
-            position: relative;
-            aspect-ratio: 4 / 5;
-            background: var(--line);
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
+    position: relative;
+
+    /* On ne force plus un ratio qui coupe les visuels */
+    aspect-ratio: auto;
+
+    background: var(--cream);
+    overflow: hidden;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
         .media-frame.natural {
             aspect-ratio: auto;
         }
         .media-frame video,
         .media-frame img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-            transition: transform 0.6s ease;
-            background: var(--line);
-        }
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+    display: block;
+    background: var(--cream);
+
+    transition:
+        transform 0.6s ease,
+        filter 0.4s ease;
+}
         .media-frame.natural video,
         .media-frame.natural img {
             height: auto;
         }
-        .work-card:hover .media-frame video,
-        .work-card:hover .media-frame img {
-            transform: scale(1.02);
-        }
+        .work-card {
+    background: var(--white);
+    border: 1px solid var(--line);
+
+    transition:
+        border-color 0.35s ease,
+        transform 0.35s ease,
+        box-shadow 0.35s ease;
+}
+
+.work-card:hover {
+    border-color: var(--gold);
+    transform: translateY(-4px);
+    box-shadow: 0 15px 35px rgba(22,22,22,0.08);
+}
 
         .work-meta {
             padding: 1.5rem 1.6rem 1.8rem;
@@ -791,6 +817,293 @@
                 grid-template-columns: 1fr;
             }
         }
+        /* =========================================================
+   RESPONSIVE PORTFOLIO — MOBILE / TABLET / DESKTOP
+   ========================================================= */
+
+/* Large tablets */
+@media (max-width: 1024px) {
+
+    .container {
+        width: 100%;
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+
+    .hero-grid {
+        gap: 2rem;
+    }
+
+    .hero h1 {
+        font-size: 3rem;
+    }
+
+    .work-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .capability-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .contact-wrapper {
+        gap: 2rem;
+    }
+}
+
+
+/* Tablets */
+@media (max-width: 768px) {
+
+    section {
+        padding: 4.5rem 0;
+    }
+
+    .container {
+        padding-left: 1.25rem;
+        padding-right: 1.25rem;
+    }
+
+    /* Navigation */
+
+    .nav-container {
+        padding: 1rem 1.25rem;
+    }
+
+    .nav-links {
+        position: fixed;
+        top: 64px;
+        left: 0;
+        right: 0;
+
+        background: rgba(248,246,243,0.98);
+        backdrop-filter: blur(14px);
+
+        flex-direction: column;
+        align-items: flex-start;
+
+        padding: 1.5rem 1.25rem 2rem;
+
+        gap: 1.2rem;
+
+        transform: translateY(-20px);
+        opacity: 0;
+        visibility: hidden;
+
+        transition:
+            opacity 0.3s ease,
+            transform 0.3s ease,
+            visibility 0.3s ease;
+    }
+
+    .nav-links.is-open {
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .nav-toggle {
+        display: flex;
+    }
+
+    /* Hero */
+
+    .hero {
+        padding-top: 7.5rem;
+    }
+
+    .hero-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .hero-photo {
+        order: -1;
+        margin-bottom: 2rem;
+    }
+
+    .hero-text {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .hero-lead {
+        max-width: 600px;
+    }
+
+    .hero-ctas {
+        justify-content: center;
+    }
+
+    .photo-card-wrap {
+        width: min(320px, 75vw);
+    }
+
+    /* Grids */
+
+    .work-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.2rem;
+    }
+
+    .capability-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .matrix-grid-3,
+    .matrix-grid-2 {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-wrapper {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/* Phones */
+@media (max-width: 560px) {
+
+    body {
+        font-size: 15px;
+    }
+
+    section {
+        padding: 3.8rem 0;
+    }
+
+    .container {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    .hero {
+        padding-top: 6.8rem;
+        padding-bottom: 3rem;
+    }
+
+    .hero h1 {
+        font-size: 2.25rem;
+    }
+
+    .hero-lead {
+        font-size: 1rem;
+    }
+
+    .hero-ctas {
+        width: 100%;
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .hero-ctas .btn {
+        width: 100%;
+        text-align: center;
+    }
+
+    .photo-card-wrap {
+        width: min(280px, 78vw);
+    }
+
+    .section-head h2,
+    .about-inner h2,
+    .approach-inner h2,
+    .contact-info h2 {
+        font-size: 2rem;
+    }
+
+    /* One card per row */
+
+    .work-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .work-meta {
+        padding: 1.25rem;
+    }
+
+    .capability-card {
+        padding: 1.5rem;
+    }
+
+    .case-card {
+        padding: 1.3rem;
+    }
+
+    .case-header {
+        flex-direction: column;
+    }
+
+    .case-tag {
+        white-space: normal;
+    }
+
+    .matrix-card {
+        padding: 1.2rem;
+    }
+
+    .contact-form {
+        padding: 1.4rem;
+    }
+
+    /* Tools */
+
+    .tools-section {
+        padding: 2.5rem 0;
+    }
+
+    .marquee-group {
+        padding: 1.2rem 0;
+    }
+
+    /* Creative focus */
+
+    .focus-list {
+        gap: 0.6rem;
+    }
+
+    .focus-pill {
+        font-size: 0.72rem;
+        padding: 0.6rem 0.8rem;
+    }
+}
+
+
+/* Very small phones */
+@media (max-width: 380px) {
+
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .eyebrow {
+        font-size: 0.68rem;
+    }
+
+    .photo-card-wrap {
+        width: 240px;
+    }
+
+    .work-meta h3 {
+        font-size: 1.15rem;
+    }
+}
+
+
+/* Accessibility / reduced motion */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+    }
+}
     </style>
 </head>
 <body>
@@ -979,74 +1292,918 @@
         </div>
     </section>
 
-    <!-- Digital Marketing Section -->
-    <section id="digital-marketing">
-        <div class="container">
-            <div class="section-head reveal">
-                <p class="eyebrow">Expertise</p>
-                <h2>Digital Marketing &amp; Strategy</h2>
-                <p class="section-lead">Driving growth through performance campaigns, tracking implementations, and SEO optimization.</p>
-            </div>
-            
-            <div class="capability-grid">
-                <div class="capability-card reveal">
-                    <div class="capability-num">01</div>
-                    <h3>Paid Media &amp; Acquisition</h3>
-                    <ul>
-                        <li>Google Ads search &amp; display campaigns setup</li>
-                        <li>Meta Ads &amp; TikTok Ads audience targeting</li>
-                        <li>Budget optimization &amp; ROI tracking</li>
-                    </ul>
-                </div>
-                <div class="capability-card reveal">
-                    <div class="capability-num">02</div>
-                    <h3>Analytics &amp; Tracking</h3>
-                    <ul>
-                        <li>Google Analytics (GA4) custom event configuration</li>
-                        <li>Google Tag Manager implementation &amp; audits</li>
-                        <li>Looker Studio performance reporting dashboards</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
+    <!-- =========================================================
+     DIGITAL MARKETING
+     ========================================================= -->
 
-    <!-- Contact Section -->
-    <section class="contact" id="contact">
-        <div class="container contact-wrapper">
-            <div class="contact-info reveal">
-                <p class="eyebrow">Get in Touch</p>
-                <h2>Let's build something remarkable together.</h2>
-                <p>Have a project in mind, a digital strategy to deploy, or a content campaign to launch? Reach out and let's discuss how we can work together.</p>
-                
-                <div class="contact-details">
-                    <a href="mailto:contact@fenohasina.mg" class="contact-item">
-                        <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-                        contact@fenohasina.mg
-                    </a>
+<section id="digital-marketing">
+
+    <div class="container">
+
+        <div class="section-head dm-intro">
+
+            <p class="eyebrow reveal">
+                Digital Marketing
+            </p>
+
+            <h2 class="reveal">
+                Digital Marketing
+            </h2>
+
+            <p class="section-lead reveal">
+                Acquisition, visibility, conversion and data —
+                combining paid media, SEO, analytics and content strategy
+                to solve real business challenges.
+            </p>
+
+        </div>
+
+
+        <!-- =========================
+             CAPABILITIES
+             ========================= -->
+
+        <div class="capability-grid">
+
+            <!-- 01 -->
+
+            <div class="capability-card reveal">
+
+                <div class="capability-num">
+                    01
                 </div>
+
+                <h3>
+                    Digital Acquisition
+                </h3>
+
+                <ul>
+                    <li>Google Ads</li>
+                    <li>Meta Ads</li>
+                    <li>TikTok Ads</li>
+                    <li>Lead generation</li>
+                    <li>Campaign structure</li>
+                    <li>Budget optimisation</li>
+                    <li>Conversion tracking</li>
+                </ul>
+
             </div>
+
+
+            <!-- 02 -->
+
+            <div class="capability-card reveal">
+
+                <div class="capability-num">
+                    02
+                </div>
+
+                <h3>
+                    SEO &amp; Web Visibility
+                </h3>
+
+                <ul>
+                    <li>Technical SEO</li>
+                    <li>On-page SEO</li>
+                    <li>Keyword strategy</li>
+                    <li>Content strategy</li>
+                    <li>Local SEO</li>
+                    <li>Search visibility</li>
+                </ul>
+
+            </div>
+
+
+            <!-- 03 -->
+
+            <div class="capability-card reveal">
+
+                <div class="capability-num">
+                    03
+                </div>
+
+                <h3>
+                    Analytics &amp; Tracking
+                </h3>
+
+                <ul>
+                    <li>GA4</li>
+                    <li>Google Tag Manager</li>
+                    <li>Conversion tracking</li>
+                    <li>Event tracking</li>
+                    <li>Data analysis</li>
+                    <li>Performance reporting</li>
+                </ul>
+
+            </div>
+
+
+            <!-- 04 -->
+
+            <div class="capability-card reveal">
+
+                <div class="capability-num">
+                    04
+                </div>
+
+                <h3>
+                    Conversion &amp; Automation
+                </h3>
+
+                <ul>
+                    <li>Landing pages</li>
+                    <li>User journey</li>
+                    <li>Lead forms</li>
+                    <li>CRM</li>
+                    <li>Email automation</li>
+                    <li>Conversion optimisation</li>
+                </ul>
+
+            </div>
+
+        </div>
+
+
+        <!-- =========================
+             MY APPROACH QUOTE
+             ========================= -->
+
+        <div class="pull-quote reveal">
+
+            <h3>
+                Creative mind. Marketing perspective.
+            </h3>
+
+            <p>
+                I don't just think about how content looks.
+                I think about why people stop, watch, remember and act.
+                My approach connects creation, strategy, acquisition,
+                data and conversion.
+            </p>
+
+        </div>
+
+
+        <!-- =========================
+             CASE STUDIES INTRO
+             ========================= -->
+
+        <p class="eyebrow reveal" style="margin-bottom:1.6rem;">
+            Case Studies — Sectors, Not Client Names
+        </p>
+
+
+        <!-- =====================================================
+             CASE 01 — BUSINESS SERVICES
+             ===================================================== -->
+
+        <article class="case-card reveal">
+
+            <div class="case-header">
+
+                <div>
+
+                    <h3>
+                        Case 01 — Business Services — B2B
+                    </h3>
+
+                    <p>
+                        Lead Generation &amp; Paid Media
+                    </p>
+
+                </div>
+
+                <span class="case-tag">
+                    Lead Generation
+                </span>
+
+            </div>
+
+
+            <div class="case-block">
+
+                <div class="case-block-title">
+                    Challenge
+                </div>
+
+                <p>
+                    [INSÉRER ICI LE VRAI PROBLÈME DU CLIENT /
+                    DE L'ACTIVITÉ]
+                </p>
+
+            </div>
+
+
+            <div class="case-block">
+
+                <div class="case-block-title">
+                    Approach
+                </div>
+
+                <p>
+                    [INSÉRER ICI LES ACTIONS RÉELLEMENT RÉALISÉES :
+                    Google Ads, structure de campagne, ciblage,
+                    optimisation, tracking, etc.]
+                </p>
+
+            </div>
+
+
+            <div class="case-block-title">
+                Impact Snapshot
+            </div>
+
+
+            <div class="matrix-grid-3">
+
+
+                <div class="matrix-card">
+
+                    <div class="matrix-metric-label">
+                        Metric 01
+                    </div>
+
+                    <div class="matrix-values">
+
+                        <span class="val-before">
+                            [AVANT]
+                        </span>
+
+                        <span class="val-arrow">
+                            →
+                        </span>
+
+                        <span class="val-after">
+                            [APRÈS]
+                        </span>
+
+                    </div>
+
+                    <div class="matrix-badge">
+                        [ÉVOLUTION RÉELLE]
+                    </div>
+
+                </div>
+
+
+                <div class="matrix-card">
+
+                    <div class="matrix-metric-label">
+                        Metric 02
+                    </div>
+
+                    <div class="matrix-values">
+
+                        <span class="val-before">
+                            [AVANT]
+                        </span>
+
+                        <span class="val-arrow">
+                            →
+                        </span>
+
+                        <span class="val-after">
+                            [APRÈS]
+                        </span>
+
+                    </div>
+
+                    <div class="matrix-badge">
+                        [ÉVOLUTION RÉELLE]
+                    </div>
+
+                </div>
+
+
+                <div class="matrix-card">
+
+                    <div class="matrix-metric-label">
+                        Metric 03
+                    </div>
+
+                    <div class="matrix-values">
+
+                        <span class="val-after">
+                            [DONNÉE]
+                        </span>
+
+                    </div>
+
+                    <div class="matrix-badge">
+                        [SIGNIFICATION]
+                    </div>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+        <!-- =====================================================
+             CASE 02 — VEHICLE RENTAL
+             ===================================================== -->
+
+        <article class="case-card reveal">
+
+            <div class="case-header">
+
+                <div>
+
+                    <h3>
+                        Case 02 — Vehicle Rental
+                    </h3>
+
+                    <p>
+                        SEO, Google Ads &amp; Direct Acquisition
+                    </p>
+
+                </div>
+
+                <span class="case-tag">
+                    SEO &amp; Acquisition
+                </span>
+
+            </div>
+
+
+            <div class="case-block">
+
+                <div class="case-block-title">
+                    Challenge
+                </div>
+
+                <p>
+                    [INSÉRER LE PROBLÈME RÉEL :
+                    VISIBILITÉ, CONCURRENCE, RÉSERVATIONS,
+                    DÉPENDANCE AUX INTERMÉDIAIRES, ETC.]
+                </p>
+
+            </div>
+
+
+            <div class="case-block">
+
+                <div class="case-block-title">
+                    Approach
+                </div>
+
+                <p>
+                    [INSÉRER LES ACTIONS RÉELLES :
+                    SEO, GOOGLE ADS, MOTS-CLÉS, LOCAL SEARCH,
+                    LANDING PAGE, ETC.]
+                </p>
+
+            </div>
+
+
+            <div class="case-block-title">
+                Impact Snapshot
+            </div>
+
+
+            <div class="matrix-grid-3">
+
+                <div class="matrix-card">
+
+                    <div class="matrix-metric-label">
+                        Google Visibility
+                    </div>
+
+                    <div class="matrix-values">
+
+                        <span class="val-after">
+                            [DONNÉE RÉELLE]
+                        </span>
+
+                    </div>
+
+                    <div class="matrix-badge">
+                        [CONTEXTE]
+                    </div>
+
+                </div>
+
+
+                <div class="matrix-card">
+
+                    <div class="matrix-metric-label">
+                        Traffic / Clicks
+                    </div>
+
+                    <div class="matrix-values">
+
+                        <span class="val-after">
+                            [DONNÉE RÉELLE]
+                        </span>
+
+                    </div>
+
+                    <div class="matrix-badge">
+                        [CONTEXTE]
+                    </div>
+
+                </div>
+
+
+                <div class="matrix-card">
+
+                    <div class="matrix-metric-label">
+                        Direct Acquisition
+                    </div>
+
+                    <div class="matrix-values">
+
+                        <span class="val-after">
+                            [DONNÉE RÉELLE]
+                        </span>
+
+                    </div>
+
+                    <div class="matrix-badge">
+                        [CONTEXTE]
+                    </div>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+        <!-- =====================================================
+             CASE 03 — EDUCATION
+             ===================================================== -->
+
+        <article class="case-card reveal">
+
+            <div class="case-header">
+
+                <div>
+
+                    <h3>
+                        Case 03 — Education &amp; Training Institution
+                    </h3>
+
+                    <p>
+                        Analytics, SEO &amp; Data
+                    </p>
+
+                </div>
+
+                <span class="case-tag">
+                    Analytics &amp; Data
+                </span>
+
+            </div>
+
+
+            <div class="case-block">
+
+                <div class="case-block-title">
+                    Challenge
+                </div>
+
+                <p>
+                    [INSÉRER LE PROBLÈME RÉEL IDENTIFIÉ
+                    DANS GA4 / GTM / SEO.]
+                </p>
+
+            </div>
+
+
+            <div class="case-block">
+
+                <div class="case-block-title">
+                    Approach
+                </div>
+
+                <p>
+                    [INSÉRER LES ACTIONS RÉELLEMENT RÉALISÉES :
+                    TRACKING, GA4, GTM, FILTRAGE, SEO,
+                    ANALYSE DU COMPORTEMENT, ETC.]
+                </p>
+
+            </div>
+
+
+            <!-- DATA & INSIGHTS -->
+
+            <div class="case-block-title">
+                Data &amp; Insights
+            </div>
+
+
+            <div class="matrix-grid-2">
+
+
+                <div class="chart-box">
+
+                    <div class="case-block-title">
+                        Acquisition
+                    </div>
+
+                    <div class="chart-container-wrapper">
+                        <canvas id="educationAcquisitionChart"></canvas>
+                    </div>
+
+                </div>
+
+
+                <div class="chart-box">
+
+                    <div class="case-block-title">
+                        Engagement
+                    </div>
+
+                    <div class="chart-container-wrapper">
+                        <canvas id="educationEngagementChart"></canvas>
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+            <div class="takeaway-box">
+
+                <div class="case-block-title">
+                    Key Insights
+                </div>
+
+                <ul>
+
+                    <li>
+                        <strong>Acquisition:</strong>
+                        [DONNÉE RÉELLE]
+                    </li>
+
+                    <li>
+                        <strong>Engagement:</strong>
+                        [DONNÉE RÉELLE]
+                    </li>
+
+                    <li>
+                        <strong>Tracking:</strong>
+                        [DONNÉE RÉELLE]
+                    </li>
+
+                    <li>
+                        <strong>SEO:</strong>
+                        [DONNÉE RÉELLE]
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </article>
+
+    </div>
+
+</section>
+
+    <!-- =========================================================
+     MY APPROACH
+     ========================================================= -->
+
+<section id="approach">
+
+    <div class="container approach-inner">
+
+        <p class="eyebrow reveal">
+            My Approach
+        </p>
+
+        <h2 class="reveal">
+            Creative mind.
+            <span class="script">
+                Marketing perspective.
+            </span>
+        </h2>
+
+        <p class="reveal">
+            My background in digital marketing allows me to approach
+            content from both sides: creative storytelling and
+            marketing strategy.
+        </p>
+
+        <p class="reveal">
+            I don't just think about how content looks.
+            I think about why people stop, watch, remember and act.
+        </p>
+
+        <p class="reveal">
+            My work connects creation, strategy, acquisition,
+            data and conversion to build digital experiences
+            that have a purpose.
+        </p>
+
+    </div>
+
+</section>
+
+    <!-- =========================================================
+     CREATIVE FOCUS
+     ========================================================= -->
+
+<section id="creative-focus">
+
+    <div class="container">
+
+        <div class="section-head">
+
+            <p class="eyebrow reveal">
+                Creative Focus
+            </p>
+
+            <h2 class="reveal">
+                Creative Focus
+            </h2>
+
+        </div>
+
+
+        <div class="focus-list reveal">
+
+            <span class="focus-pill">Beauty</span>
+            <span class="focus-pill">Fashion</span>
+            <span class="focus-pill">Luxury</span>
+            <span class="focus-pill">Lifestyle</span>
+            <span class="focus-pill">Travel</span>
+            <span class="focus-pill">Hospitality</span>
+            <span class="focus-pill">Food</span>
+            <span class="focus-pill">Education</span>
+            <span class="focus-pill">E-commerce</span>
+            <span class="focus-pill">Digital</span>
+
+        </div>
+
+    </div>
+
+</section>
+
+    <!-- =========================================================
+     CONTACT
+     ========================================================= -->
+
+<section class="contact" id="contact">
+
+    <div class="container">
+
+        <div class="contact-wrapper">
+
+
+            <!-- LEFT -->
+
+            <div class="contact-info">
+
+                <p class="eyebrow reveal">
+                    Contact
+                </p>
+
+                <h2 class="reveal">
+                    Let's create something meaningful.
+                </h2>
+
+                <p class="reveal">
+                    Open to creative collaborations, social media
+                    projects and digital marketing opportunities.
+                </p>
+
+
+                <a
+                    href="mailto:ratsitoarivonjyf@gmail.com"
+                    class="btn btn-primary reveal"
+                >
+                    Let's Connect
+                </a>
+
+
+                <div class="contact-details reveal">
+
+
+                    <!-- EMAIL -->
+
+                    <a
+                        href="mailto:ratsitoarivonjyf@gmail.com"
+                        class="contact-item link-animated"
+                    >
+
+                        <svg
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="1.5"
+                        >
+                            <path d="M3 6h18v12H3V6Z"/>
+                            <path d="m3 6 9 7 9-7"/>
+                        </svg>
+
+                        ratsitoarivonjyf@gmail.com
+
+                    </a>
+
+
+                    <!-- LINKEDIN -->
+
+                    <a
+                        href="https://www.linkedin.com/in/fenohasina-a-ratsitoarivonjy-andrian"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="contact-item link-animated"
+                    >
+
+                        <svg
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="1.5"
+                        >
+                            <rect
+                                x="3"
+                                y="3"
+                                width="18"
+                                height="18"
+                                rx="1.5"
+                            />
+
+                            <path d="M7.5 10.5v6"/>
+                            <path d="M7.5 7.75v.01"/>
+                            <path d="M12 16.5v-4c0-1.1.9-2 2-2s2 .9 2 2v4"/>
+
+                        </svg>
+
+                        LinkedIn
+
+                    </a>
+
+
+                    <!-- LINKTREE -->
+
+                    <a
+                        href="https://linktr.ee/fenohasina_andrian"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="contact-item link-animated"
+                    >
+
+                        <svg
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="1.5"
+                        >
+
+                            <path d="M9 15 15 9"/>
+                            <path d="M10.5 6.5 12 5a3.5 3.5 0 1 1 5 5l-1.5 1.5"/>
+                            <path d="M13.5 17.5 12 19a3.5 3.5 0 1 1-5-5l1.5-1.5"/>
+
+                        </svg>
+
+                        More Links
+
+                    </a>
+
+
+                    <!-- LOCATION -->
+
+                    <span class="contact-item">
+
+                        <svg
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="1.5"
+                        >
+
+                            <path d="M12 21s7-6.5 7-11.5A7 7 0 0 0 5 9.5C5 14.5 12 21 12 21Z"/>
+                            <circle cx="12" cy="9.5" r="2.2"/>
+
+                        </svg>
+
+                        Antananarivo, Madagascar
+
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- RIGHT — FORM -->
 
             <div class="contact-form reveal">
-                <form action="#" method="POST">
-                    <div class="form-group">
-                        <label for="name">Your Name</label>
-                        <input type="text" id="name" name="name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Your Email</label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Your Message</label>
-                        <textarea id="message" name="message" rows="5" required></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-primary submit-btn">Send Message</button>
-                </form>
-            </div>
-        </div>
-    </section>
 
+                <form
+                    action="https://formsubmit.co/ratsitoarivonjyf@gmail.com"
+                    method="POST"
+                >
+
+                    <input
+                        type="hidden"
+                        name="_subject"
+                        value="New message from Fenohasina's portfolio"
+                    >
+
+                    <input
+                        type="hidden"
+                        name="_template"
+                        value="table"
+                    >
+
+                    <input
+                        type="hidden"
+                        name="_captcha"
+                        value="false"
+                    >
+
+
+                    <div class="form-group">
+
+                        <label for="name">
+                            Full Name
+                        </label>
+
+                        <input
+                            type="text"
+                            id="name"
+                            name="name"
+                            placeholder="e.g. Jane Doe"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="email">
+                            Email Address
+                        </label>
+
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            placeholder="name@example.com"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="subject">
+                            Project Subject
+                        </label>
+
+                        <input
+                            type="text"
+                            id="subject"
+                            name="subject"
+                            placeholder="Google Ads, SEO, Content..."
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="message">
+                            Message / Project Details
+                        </label>
+
+                        <textarea
+                            id="message"
+                            name="message"
+                            rows="6"
+                            placeholder="Tell me about your project..."
+                            required
+                        ></textarea>
+
+                    </div>
+
+
+                    <button
+                        type="submit"
+                        class="btn btn-primary submit-btn"
+                    >
+                        Send Message
+                    </button>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
     <!-- Footer -->
     <footer>
         <div class="container">
